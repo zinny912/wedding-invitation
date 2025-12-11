@@ -107,12 +107,12 @@ body {
   width: 100%;
   max-width: 300px;              /* 필요 시 조절 */
   margin: 0 auto;
-  transform: translateY(-160px);
+  transform: translateY(-200px);
 }
 
 .hero-date-stack .hero-time {
   display: block;
-  font-size: 2.3rem;       /* 더 작게 */
+  font-size: 1.0rem;       /* 더 작게 */
   margin-top: 4px;       /* 날짜와 간격*/
   letter-spacing: 2px;   /* 우아한 느낌 */
   opacity: 0.9;
@@ -122,25 +122,25 @@ body {
 
 /* "Cormorant Garamond" */
 .hero-date-stack span {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 900;
+  font-family: "Bodoni Moda", serif;
+  font-weight: 800;
   font-style: italic;
-  font-size: clamp(8rem, 15vw, 10rem);
+  font-size: clamp(7rem, 14vw, 9rem);
   line-height: 0.5;
   text-shadow: 0 2px 4px rgba(255, 255, 0, 0.7);
   color: #ffffff;
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(-39px);   /* 26 왼쪽으로 */
+  transform: translateX(-39px) translateY(35px);   /* 26 왼쪽으로 */
  } 
 
 .hero-date-stack span:nth-child(2) {
-  transform: translateX(39px);     /* 03 중앙 */
+  transform: translateX(39px)translateY(70px);     /* 03 중앙 */
  } 
   
 .hero-date-stack span.hero-time {
-  transform: translateX(90px) translateY(15px);
+  transform: translateX(140px) translateY(90px);
   font-size: 2.3rem !important;
 }
 
@@ -598,4 +598,11 @@ body {
     padding-top: 120px;
   }
 }
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  src: url('/fonts/BodoniModa-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 700;
+}
+
 
