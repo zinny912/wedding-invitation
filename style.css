@@ -110,9 +110,9 @@ body {
   /* transform: translateY(-150px); */
 }
 
-
+/* "Cormorant Garamond" */
 .hero-date-stack span {
-  font-family: "Playfair Display","Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 900;
   font-style: italic;
   font-size: clamp(8rem, 15vw, 10rem);
