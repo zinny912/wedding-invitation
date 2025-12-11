@@ -86,7 +86,7 @@ body {
   font-family: "Playfair Display", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
 }
 .hero-bottom-row {
   width: 100%;
@@ -96,7 +96,7 @@ body {
   font-family: "Playfair Display", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
 }
 
 .hero-date-stack {
@@ -112,9 +112,10 @@ body {
 
 
 .hero-date-stack span {
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 900;
-  font-size: clamp(7rem, 15vw, 10rem);
+  font-style: italic;
+  font-size: clamp(8rem, 15vw, 10rem);
   line-height: 0.8;
   text-shadow: none !important; 
   color: #e8dfd3;
@@ -130,6 +131,14 @@ body {
 
 .hero-date-stack span:nth-child(3) {
   transform: translateX(-18px);    /* 28 오른쪽으로 */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.20); /* ✔ 밝은 드레스 대비 개선 */
+  z-index: 0;                     /* 사진 위 / 텍스트 아래 */
 }
 
 /* 텍스트 영역 */
