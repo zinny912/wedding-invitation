@@ -83,7 +83,7 @@ body {
   max-width: 360px;
   display: flex;
   justify-content: space-between;
-  font-family: "Playfair Display", serif;
+  font-family: "Amarna", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.0rem;
@@ -93,7 +93,7 @@ body {
   max-width: 360px;
   display: flex;
   justify-content: space-between;
-  font-family: "Playfair Display", serif;
+  font-family: "Amarna", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.0rem;
@@ -112,7 +112,7 @@ body {
 
 /* "Cormorant Garamond" */
 .hero-date-stack span {
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 900;
   font-style: italic;
   font-size: clamp(8rem, 15vw, 10rem);
@@ -122,11 +122,11 @@ body {
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(29px) translateY(15px);   /* 26 왼쪽으로 */
+  transform: translateX(29px) translateY(5px);   /* 26 왼쪽으로 */
 }
 
 .hero-date-stack span:nth-child(2) {
-  transform: translateX(-5px);     /* 03 중앙 */
+  transform: translateX(-10px);     /* 03 중앙 */
 }
 
 .hero-date-stack span:nth-child(3) {
@@ -422,7 +422,7 @@ body {
 }
 
 .account-bank {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #444;
 }
 
@@ -431,7 +431,7 @@ body {
   padding: 7px 14px;
   font-size: 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0);
   background: linear-gradient(135deg, #fdfaf5, #f2e6d9);
   color: #333;
   cursor: pointer;
@@ -491,7 +491,7 @@ body {
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-.modal-nav {
+/* .modal-nav {
   z-index: 1001;
   position: relative;
   font-size: 3rem;
@@ -508,7 +508,7 @@ body {
 .modal-nav.modal-next {
   position: absolute;
   right: 10px;
-}
+} */
 
 
 /* 모바일 기준이니, 큰 화면에서는 살짝 여백만 */
