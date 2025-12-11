@@ -36,15 +36,12 @@ body {
 
 
 /* 폰트 */
-
 .amarna-400 {
   font-family: "Amarna", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
-
-
 
 /* ✅ 1. 첫 화면 (Hero) – 화면 꽉 차는 배경 사진 */
 /* 화면 꽉 채우는 메인 사진 */
@@ -122,17 +119,16 @@ body {
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(29px) translateY(5px);   /* 26 왼쪽으로 */
-}
+  transform: translateX(-39px);   /* 26 왼쪽으로 */
+ } 
 
 .hero-date-stack span:nth-child(2) {
-  transform: translateX(-10px);     /* 03 중앙 */
-}
-
+  transform: translateX(39px);     /* 03 중앙 */
+ } 
+/*  
 .hero-date-stack span:nth-child(3) {
   transform: translateX(28px) translateY(15px);    /* 28 오른쪽으로 */
-}
-
+/* }  */
 .hero::after {
   content: "";
   position: absolute;
