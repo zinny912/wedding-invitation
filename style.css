@@ -47,7 +47,7 @@ body {
 /* ✅ 1. 첫 화면 (Hero) – 화면 꽉 차는 배경 사진 */
 .hero {
   position: relative;
-  width: 100%;
+  width: 100vh;
   height: 100vh; /* 화면 꽉 차게 */
   background-image: url("images/main_01.jpg"); /* 메인 사진 경로 */
   background-size: cover;       /* ✔ 화면에 꽉 차게 (잘라도 된다) */
