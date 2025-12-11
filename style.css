@@ -122,7 +122,7 @@ body {
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(26px);   /* 26 왼쪽으로 */
+  transform: translateX(29px) translateY(10px);   /* 26 왼쪽으로 */
 }
 
 .hero-date-stack span:nth-child(2) {
@@ -130,15 +130,15 @@ body {
 }
 
 .hero-date-stack span:nth-child(3) {
-  transform: translateX(25px);    /* 28 오른쪽으로 */
+  transform: translateX(27px) translateY(5px);    /* 28 오른쪽으로 */
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.20); /* ✔ 밝은 드레스 대비 개선 */
-  z-index: 0;                     /* 사진 위 / 텍스트 아래 */
+  background: rgba(0, 0, 0, 0.10); /* ✔ 밝은 드레스 대비 개선 */
+  z-index: -1;                     /* 사진 위 / 텍스트 아래 */
 }
 
 /* 텍스트 영역 */
@@ -480,31 +480,34 @@ body {
   margin: auto;
 }
 
-/* 닫기 버튼 (우상단 X) */
 .modal-close {
   position: absolute;
-  top: -15px;
-  right: -32px;
-  font-size: 1.5rem;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  z-index: 1001;
   color: #fff;
   cursor: pointer;
-  text-shadow: 0 0 8px rgba(0,0,0,0.8);
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-/* 좌우 이동 버튼 */
 .modal-nav {
-  border: none;
-  background: none;
+  z-index: 1001;
+  position: relative;
+  font-size: 3rem;
   color: #fff;
-  font-size: 2.4rem;
   cursor: pointer;
-  padding: 8px;
-  line-height: 1;
   user-select: none;
 }
 
-.modal-nav:active {
-  transform: scale(0.9);
+.modal-nav.modal-prev {
+  position: absolute;
+  left: 10px;
+}
+
+.modal-nav.modal-next {
+  position: absolute;
+  right: 10px;
 }
 
 
