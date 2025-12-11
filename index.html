@@ -1,0 +1,178 @@
+<!-- 화면 구성 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>승호 ♥ 진희</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=Dongle&family=Gowun+Batang&family=Gowun+Dodum&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playwrite+RO:wght@100..400&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ✅ 1. 첫 화면 (인트로 + 애니메이션) -->
+<header class="hero">
+  <div class="hero-card">
+    <img
+      src="images/main_01.jpg"
+      alt="승호와 진희"
+      class="hero-photo"
+    />
+
+    <div class="hero-text-overlay">
+      <div class="hero-top-row">
+        <span>최 승 호</span>
+        <span>이 진 희</span>
+      </div>
+
+      <div class="hero-date-stack">
+        <!-- 2026-03-28 기준으로 예시: 26 / 03 / 28 -->
+        <span>26</span>
+        <span>03</span>
+        <span>28</span>
+      </div>
+
+      <div class="hero-bottom-row">
+        <span>TO</span>
+        <span>BE</span>
+        <span>TOGETHER</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- ✅ 2. 본식 정보 섹션 -->
+  <section class="section" id="info">
+    <h2 class="section-title">초대 글</h2>
+    <p class="section-text">
+      
+      새로운 시작을 함께하려 합니다.<br/>
+      소중한 걸음을 해주신다면 큰 기쁨이 되겠습니다.
+    </p>
+
+    <div class="info-box">
+      <p><strong>일시</strong> : 2026년 3월 28일 토요일 오후 2시 30분</p>
+      <p><strong>장소</strong> : 당산 그랜드컨벤션 센터 3층 리젠시홀</p>
+    </div>
+  <section class="section" id="map"></section>
+      <div class="map-placeholder">
+      <div class="map-inner">
+        <a 
+          href="https://map.kakao.com/?urlX=478048.0000000002&amp;urlY=1121003.0000000016&amp;itemId=15292647&amp;q=%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0&amp;srcid=15292647&amp;map_type=TYPE_MAP&amp;from=roughmap" 
+          target="_blank"
+        >
+          <img 
+            src="http://t1.daumcdn.net/roughmap/imgmap/5a435dc75c8b2ee7a1e65069a2228621575b5e74f4df2c2a28bf1f8d50bca526" 
+            alt="그랜드컨벤션 센터 위치 지도"
+          >
+        </a>
+        <div class="map-inner-footer">
+          <a href="https://map.kakao.com/?from=roughmap&amp;srcid=15292647&amp;confirmid=15292647&amp;q=%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0&amp;rv=on" target="_blank">로드뷰</a>
+          <span class="divider"></span>
+          <a href="https://map.kakao.com/?from=roughmap&amp;eName=%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0&amp;eX=478048.0000000002&amp;eY=1121003.0000000016" target="_blank">길찾기</a>
+          <span class="divider"></span>
+          <a href="https://map.kakao.com?map_type=TYPE_MAP&amp;from=roughmap&amp;srcid=15292647&amp;itemId=15292647&amp;q=%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0&amp;urlX=478048.0000000002&amp;urlY=1121003.0000000016" target="_blank">지도 크게 보기</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+  <!-- ✅ 3. 갤러리 섹션 -->
+  <section class="section" id="gallery">
+    <h2 class="section-title">우리 사진</h2>
+    <p class="section-text">함께한 순간들을 담았어요.</p>
+
+    <div class="gallery-wrapper">
+      <!-- 9장만 고정 슬롯으로 두고 JS로 사진을 바꿔 끼웁니다 -->
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+
+      <!-- 가운데 줄 양 옆에 들어갈 이동 버튼 -->
+      <button class="gallery-nav prev" id="gallery-prev">‹</button>
+      <button class="gallery-nav next" id="gallery-next">›</button>
+    </div>
+
+    <p class="gallery-page-indicator" id="gallery-page-indicator">
+      1 / 10
+    </p>
+  </section>
+
+
+  <!-- ✅ 4. 혼주 계좌 섹션 -->
+  <section class="section" id="accounts">
+    <h2 class="section-title">마음 전하실 곳</h2>
+    <p class="section-text">
+      축하의 마음만으로도 충분하지만,
+      전해주신 정성은 소중히 간직하겠습니다.
+    </p>
+
+    <div class="account-group">
+      <button class="account-toggle" onclick="toggleAccount('bride')">
+        👰 신부측 계좌 정보 보기
+      </button>
+      <div id="account-bride" class="account-list">
+        <div class="account-item">
+          <p class="account-name">신부 이진희</p>
+          <p class="account-bank">국민은행 123456-78-901234</p>
+          <button class="copy-btn" onclick="copyText('국민은행 123456-78-901234')">복사</button>
+        </div>
+        <div class="account-item">
+          <p class="account-name">신부 아버지 이용윤</p>
+          <p class="account-bank">신한은행 222-333-444444</p>
+          <button class="copy-btn" onclick="copyText('신한은행 222-333-444444')">복사</button>
+        </div>
+         <div class="account-item">
+          <p class="account-name">신부 어머니 김심자</p>
+          <p class="account-bank">신한은행 222-333-444444</p>
+          <button class="copy-btn" onclick="copyText('신한은행 222-333-444444')">복사</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="account-group">
+      <button class="account-toggle" onclick="toggleAccount('groom')">
+        🤵 신랑측 계좌 정보 보기
+      </button>
+      <div id="account-groom" class="account-list">
+        <div class="account-item">
+          <p class="account-name">신랑 최승호</p>
+          <p class="account-bank">우리은행 987654-32-109876</p>
+          <button class="copy-btn" onclick="copyText('우리은행 987654-32-109876')">복사</button>
+        </div>
+        <div class="account-item">
+          <p class="account-name">신랑 어머니</p>
+          <p class="account-bank">하나은행 555-666-777777</p>
+          <button class="copy-btn" onclick="copyText('하나은행 555-666-777777')">복사</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ 갤러리용 모달 (사진 크게 보기 + 좌우 이동) -->
+  <div id="image-modal" class="modal">
+    <button class="modal-nav modal-prev" type="button" onclick="modalPrev()">‹</button>
+
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img id="modal-image" src="" alt="확대 이미지" />
+    </div>
+
+    <button class="modal-nav modal-next" type="button" onclick="modalNext()">›</button>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
