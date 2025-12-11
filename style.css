@@ -112,7 +112,7 @@ body {
 
 
 .hero-date-stack span {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display","Cormorant Garamond", serif;
   font-weight: 900;
   font-style: italic;
   font-size: clamp(8rem, 15vw, 10rem);
@@ -122,15 +122,15 @@ body {
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(29px) translateY(30px);   /* 26 왼쪽으로 */
+  transform: translateX(29px) translateY(15px);   /* 26 왼쪽으로 */
 }
 
 .hero-date-stack span:nth-child(2) {
-  transform: translateX(0px);     /* 03 중앙 */
+  transform: translateX(-5px);     /* 03 중앙 */
 }
 
 .hero-date-stack span:nth-child(3) {
-  transform: translateX(29px) translateY(15px);    /* 28 오른쪽으로 */
+  transform: translateX(28px) translateY(15px);    /* 28 오른쪽으로 */
 }
 
 .hero::after {

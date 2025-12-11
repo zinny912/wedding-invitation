@@ -106,32 +106,6 @@ function closeModal() {
   currentImageIndex = null;
 }
 
-// ======================
-// 스와이프(터치)로 좌우 이동
-// ======================
-let touchStartX = 0;
-let touchEndX = 0;
-
-modal.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-modal.addEventListener("touchend", (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-
-  const diff = touchEndX - touchStartX;
-
-  // 50px 이상 스와이프해야 동작하도록
-  if (diff > 50) {
-    // 오른쪽 → 이전 사진
-    modalPrev();
-  } else if (diff < -50) {
-    // 왼쪽 → 다음 사진
-    modalNext();
-  }
-});
-
-
 // 이전 사진
 function modalPrev() {
   if (!currentImageIndex) return;
@@ -184,4 +158,29 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
+});
+// ======================================
+// 모바일 스와이프 기능
+// ======================================
+let touchStartX = 0;
+let touchEndX = 0;
+
+modal.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+modal.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+
+  const diff = touchEndX - touchStartX;
+
+  // 오른쪽 → 왼쪽 스와이프(다음 사진)
+  if (diff < -50) {
+    modalNext();
+  }
+
+  // 왼쪽 → 오른쪽 스와이프(이전 사진)
+  if (diff > 50) {
+    modalPrev();
+  }
 });
