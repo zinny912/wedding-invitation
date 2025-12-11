@@ -114,7 +114,7 @@ body {
   font-style: italic;
   font-size: clamp(8rem, 15vw, 10rem);
   line-height: 0.5;
-  text-shadow: none !important; 
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   color: #fff;
 }
 
@@ -191,7 +191,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   backdrop-filter: blur(4px);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   animation: float 2.2s ease-in-out infinite;
 }
 
@@ -436,7 +436,7 @@ body {
   align-items: center;
   justify-content: center;
   min-width: 52px;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
 }
 
 .copy-btn:active {
@@ -466,46 +466,107 @@ body {
 }
 
 .modal-content img {
-  max-width: 100vw;
+  max-width: clac(100vw - 20px);
   max-height: calc(100vh - 80px);
   width: auto;
   height: auto;
   object-fit: contain;           /* 비율 유지하면서 화면 안에 꽉 차게 */
-  border-radius: 12px;
+  border-radius: 0px;
   display: block;
   margin: auto;
 }
 
+/* 닫기 버튼 위치 재배치 */
 .modal-close {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 2rem;
-  z-index: 1001;
-  color: #fff;
+
+  font-size: 34px;
+  color: white;
+
   cursor: pointer;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  z-index: 50;
+
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  /* 버튼 배경 유리 느낌 */
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* .modal-nav {
-  z-index: 1001;
-  position: relative;
-  font-size: 3rem;
-  color: #fff;
+/* 호버 시 강조 */
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: scale(1.1);
+}
+
+
+/* 공통: 모달 양옆 화살표 버튼 */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* 동그란 버튼 */
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.35);      /* 살짝 어두운 반투명 배경 */
+  backdrop-filter: blur(6px);           /* 유리 느낌 (지원 브라우저에서만) */
+  -webkit-backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  color: #ffffff;
   cursor: pointer;
-  user-select: none;
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  z-index: 30;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.modal-nav.modal-prev {
-  position: absolute;
-  left: 10px;
+/* 왼쪽/오른쪽 위치 */
+.modal-prev {
+  left: 16px;
 }
 
-.modal-nav.modal-next {
-  position: absolute;
-  right: 10px;
-} */
+.modal-next {
+  right: 16px;
+}
 
+/* 호버/포커스 시 살짝 강조 */
+.modal-nav:hover,
+.modal-nav:focus-visible {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 클릭 시 살짝 눌리는 느낌 */
+.modal-nav:active {
+  transform: translateY(-50%) scale(0.96);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .modal-nav {
+    display: none;
+  }
+}
 
 /* 모바일 기준이니, 큰 화면에서는 살짝 여백만 */
 @media (min-width: 768px) {

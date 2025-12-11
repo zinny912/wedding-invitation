@@ -90,37 +90,37 @@ function changeGalleryPage(delta) {
 // ======================
 // 모달 + 좌우 이동
 // ======================
-// const modal = document.getElementById("image-modal");
-// const modalImg = document.getElementById("modal-image");
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-image");
 
-// function openModalWithIndex(index) {
-//   if (index < 1 || index > TOTAL_IMAGES) return;
-//   currentImageIndex = index;
-//   modalImg.src = getImagePath(currentImageIndex);
-//   modalImg.alt = `우리 사진 ${currentImageIndex}`;
-//   modal.style.display = "flex";
-// }
+function openModalWithIndex(index) {
+  if (index < 1 || index > TOTAL_IMAGES) return;
+  currentImageIndex = index;
+  modalImg.src = getImagePath(currentImageIndex);
+  modalImg.alt = `우리 사진 ${currentImageIndex}`;
+  modal.style.display = "flex";
+}
 
-// function closeModal() {
-//   modal.style.display = "none";
-//   currentImageIndex = null;
-// }
+function closeModal() {
+  modal.style.display = "none";
+  currentImageIndex = null;
+}
 
-// // 이전 사진
-// function modalPrev() {
-//   if (!currentImageIndex) return;
-//   let nextIndex = currentImageIndex - 1;
-//   if (nextIndex < 1) nextIndex = 1; // 원하면 TOTAL_IMAGES로 순환도 가능
-//   openModalWithIndex(nextIndex);
-// }
+// 이전 사진
+function modalPrev() {
+  if (!currentImageIndex) return;
+  let nextIndex = currentImageIndex - 1;
+  if (nextIndex < 1) nextIndex = 1; // 원하면 TOTAL_IMAGES로 순환도 가능
+  openModalWithIndex(nextIndex);
+}
 
-// // 다음 사진
-// function modalNext() {
-//   if (!currentImageIndex) return;
-//   let nextIndex = currentImageIndex + 1;
-//   if (nextIndex > TOTAL_IMAGES) nextIndex = TOTAL_IMAGES; // 원하면 1로 순환도 가능
-//   openModalWithIndex(nextIndex);
-// }
+// 다음 사진
+function modalNext() {
+  if (!currentImageIndex) return;
+  let nextIndex = currentImageIndex + 1;
+  if (nextIndex > TOTAL_IMAGES) nextIndex = TOTAL_IMAGES; // 원하면 1로 순환도 가능
+  openModalWithIndex(nextIndex);
+}
 
 // ======================
 // 초기화 & 이벤트 바인딩
