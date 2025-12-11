@@ -51,7 +51,7 @@ body {
   height: 100vh; /* 화면 꽉 차게 */
   background-image: url("images/main_01.jpg"); /* 메인 사진 경로 */
   background-size: cover;       /* ✔ 화면에 꽉 차게 (잘라도 된다) */
-  background-position: center top;  /* 위쪽을 좀 더 살리고 싶으면 top, 가운데면 center */
+  background-position: top center;  /* 위쪽을 좀 더 살리고 싶으면 top, 가운데면 center */
   background-repeat: no-repeat;
 }
 
