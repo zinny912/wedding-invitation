@@ -61,8 +61,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px 18px;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  color: #d6e111;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
 .hero-photo {
@@ -84,17 +84,20 @@ body {
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.0rem;
+  transform: translateY(-17px);
 }
 .hero-bottom-row {
   width: 100%;
-  max-width: 360px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;   /* ← 가운데 정렬 */
+  align-items: center;       /* ← 세로 정렬 */
   font-family: "Amarna", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.0rem;
+  transform: translateY(17px);
 }
+
 
 .hero-date-stack {
   display: flex;
@@ -104,7 +107,7 @@ body {
   width: 100%;
   max-width: 300px;              /* 필요 시 조절 */
   margin: 0 auto;
-  /* transform: translateY(-150px); */
+  transform: translateY(-120px);
 }
 
 .hero-date-stack .hero-time {
@@ -124,8 +127,8 @@ body {
   font-style: italic;
   font-size: clamp(8rem, 15vw, 10rem);
   line-height: 0.5;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  color: #fff;
+  text-shadow: 0 2px 4px rgba(255, 255, 0, 0.7);
+  color: #ffffff;
 }
 
 .hero-date-stack span:nth-child(1) {
