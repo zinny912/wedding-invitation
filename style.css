@@ -51,7 +51,7 @@ body {
   height: 100vh;
   background-image: url("images/main_01.jpg");
   background-size: contain;
-  background-position: 50% 35%;   /* ← 핵심! 원하는 구도에 맞게 조정 */
+  background-position: center;   /* ← 핵심! 원하는 구도에 맞게 조정 */
   background-repeat: no-repeat;
 }
 /* 사진 위 텍스트 */
