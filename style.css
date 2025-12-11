@@ -64,7 +64,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px 18px;
-  color: #fff;
+  color: #e8dfd3;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
@@ -83,7 +83,7 @@ body {
   max-width: 360px;
   display: flex;
   justify-content: space-between;
-  font-family: "Sacramento", serif;
+  font-family: "Playfair Display", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.5rem;
@@ -113,9 +113,11 @@ body {
 
 .hero-date-stack span {
   font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-size: clamp(13rem, 15vw, 15rem);
+  font-weight: 900;
+  font-size: clamp(7rem, 15vw, 10rem);
   line-height: 0.8;
+  text-shadow: none !important; 
+  color: #e8dfd3;
 }
 
 .hero-date-stack span:nth-child(1) {
