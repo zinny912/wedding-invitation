@@ -505,6 +505,14 @@ body {
   transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+  .modal-close {
+    top: 14px;
+    right: 14px;
+    font-size: 26px;
+    padding: 4px 8px;
+  }
+}
 
 /* 공통: 모달 양옆 화살표 버튼 */
 .modal-nav {
