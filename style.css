@@ -110,7 +110,7 @@ body {
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(-18px);   /* 26 왼쪽으로 */
+  transform: translateX(18px);   /* 26 왼쪽으로 */
 }
 
 .hero-date-stack span:nth-child(2) {
