@@ -107,7 +107,7 @@ body {
   width: 100%;
   max-width: 300px;              /* 필요 시 조절 */
   margin: 0 auto;
-  transform: translateY(-140px);
+  transform: translateY(-160px);
 }
 
 .hero-date-stack .hero-time {
