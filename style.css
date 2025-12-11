@@ -78,13 +78,22 @@ body {
 }
 
 /* SIMPLY / MEANT / TO BE TOGETHER 는 지금 쓰시는 거 그대로 유지 */
-.hero-top-row,
-.hero-bottom-row {
+.hero-top-row {
   width: 100%;
   max-width: 360px;
   display: flex;
   justify-content: space-between;
   font-family: "Sacramento", serif;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.hero-bottom-row {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Playfair Display", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.5rem;
@@ -98,19 +107,19 @@ body {
   width: 100%;
   max-width: 300px;              /* 필요 시 조절 */
   margin: 0 auto;
-  transform: translateY(-150px);
+  /* transform: translateY(-150px); */
 }
 
 
 .hero-date-stack span {
-  font-family: "Lobster", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
-  font-size: clamp(3rem, 15vw, 5rem);
+  font-size: clamp(13rem, 15vw, 15rem);
   line-height: 0.8;
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(18px);   /* 26 왼쪽으로 */
+  transform: translateX(-18px);   /* 26 왼쪽으로 */
 }
 
 .hero-date-stack span:nth-child(2) {
@@ -118,7 +127,7 @@ body {
 }
 
 .hero-date-stack span:nth-child(3) {
-  transform: translateX(18px);    /* 28 오른쪽으로 */
+  transform: translateX(-18px);    /* 28 오른쪽으로 */
 }
 
 /* 텍스트 영역 */
