@@ -98,7 +98,7 @@ body {
   width: 100%;
   max-width: 300px;              /* 필요 시 조절 */
   margin: 0 auto;
-  transform: translateY(-100px);
+  transform: translateY(-150px);
 }
 
 
@@ -118,7 +118,7 @@ body {
 }
 
 .hero-date-stack span:nth-child(3) {
-  transform: translateX(-18px);    /* 28 오른쪽으로 */
+  transform: translateX(18px);    /* 28 오른쪽으로 */
 }
 
 /* 텍스트 영역 */
