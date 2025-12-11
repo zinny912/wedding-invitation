@@ -116,13 +116,13 @@ body {
   font-weight: 900;
   font-style: italic;
   font-size: clamp(8rem, 15vw, 10rem);
-  line-height: 0.8;
+  line-height: 0.5;
   text-shadow: none !important; 
-  color: #e8dfd3;
+  color: #fff;
 }
 
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(-18px);   /* 26 왼쪽으로 */
+  transform: translateX(26px);   /* 26 왼쪽으로 */
 }
 
 .hero-date-stack span:nth-child(2) {
@@ -130,7 +130,7 @@ body {
 }
 
 .hero-date-stack span:nth-child(3) {
-  transform: translateX(-18px);    /* 28 오른쪽으로 */
+  transform: translateX(25px);    /* 28 오른쪽으로 */
 }
 
 .hero::after {
@@ -407,31 +407,48 @@ body {
 }
 
 .account-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 2fr auto;  /* 이름 / 계좌 / 버튼 */
+  column-gap: 8px;
+  row-gap: 4px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;   /* 폰트 조금 키움 */
 }
+
 
 .account-name {
   font-weight: 600;
+  font-size: 1rem;        /* 이전보다 크게 */
 }
 
 .account-bank {
-  font-size: 0.8rem;
-  color: #555;
+  font-size: 0.95rem;
+  color: #444;
 }
 
+
 .copy-btn {
-  padding: 6px 10px;
-  font-size: 0.75rem;
+  padding: 7px 14px;
+  font-size: 0.8rem;
   border-radius: 999px;
-  border: none;
-  background: #333;
-  color: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: linear-gradient(135deg, #fdfaf5, #f2e6d9);
+  color: #333;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
+
+.copy-btn:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  background: linear-gradient(135deg, #f0e3d4, #e3d2c0);
+}
+
 
 /* ✅ 모달 (사진 크게 보기 + 좌우 버튼) */
 .modal {
