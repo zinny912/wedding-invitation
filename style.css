@@ -1,4 +1,7 @@
 /* 공통 설정 */
+
+/* invitaion 텍스트 : Lora 
+  기본 메인 텍스트 : Gowun Dodum*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,7 +11,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Noto Sans KR", sans-serif;
-  background: #faf7f2;
+  background: #e0fc99ce;
   color: #333;
   line-height: 1.6;
 }
@@ -21,10 +24,23 @@ body {
 }
 
 .section-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: "Lora";
   text-align: center;
-  margin-bottom: 12px;
+  color: #7d7d7d;
+  margin-top: 50px;
+  margin-bottom: 7px;
+  letter-spacing: 0.2rem;
+}
+.section-main-title{
+  font-weight: 400;
+  font-family: "Noto Sans Korean";
+  text-align: center;
+  color: #000000;
+  margin-top: -5px;
+  margin-bottom: 32px;
+  /* letter-spacing: 0.2rem; */
 }
 
 .section-text {
@@ -48,7 +64,7 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;   /* 한 화면 꽉 */
+  height: auto;   /* 한 화면 꽉 */
   background: #faf7f2;  /* 페이지랑 비슷한 베이스 컬러 */
   overflow: hidden;
 }
@@ -66,25 +82,25 @@ body {
 }
 
 .hero-photo {
-  position: absolute;
+  /* position: absolute; */
   inset: 0;        /* top/right/bottom/left = 0 */
   width: 100%;
-  height: 100%;
-  object-fit: cover;           /* ✔ 화면 꽉 채우기 (조금 잘려도 됨) */
+  height: auto;
+  object-fit: contain;           /* ✔ 화면 꽉 채우기 (조금 잘려도 됨) */
   object-position: 50% 20%;    /* ✔ 얼굴 기준으로 위아래 위치 조절 */
 }
 
 /* SIMPLY / MEANT / TO BE TOGETHER 는 지금 쓰시는 거 그대로 유지 */
 .hero-top-row {
   width: 100%;
-  max-width: 360px;
+  /* max-width: 360px; */
   display: flex;
   justify-content: space-between;
   font-family: "Amarna", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1.0rem;
-  transform: translateY(-17px);
+  transform: translateY(-2vw);
 }
 .hero-bottom-row {
   width: 100%;
@@ -98,52 +114,41 @@ body {
   transform: translateY(17px);
 }
 
-
 .hero-date-stack {
+  position: absolute;        /* hero 안에서 절대 위치 */
+  left: 50%;
+  top: 30%;                  /* 숫자가 놓일 세로 위치 (대략 가운데 아래쪽) */
+  transform: translate(-50%, -50%);  /* 가운데 기준 정렬 */
   display: flex;
-  flex-direction: column;           /* ✔ 세로 정렬 */
-  justify-content: center;       /* ✔ 전체는 중앙 기준 */
-  align-items: center;             
-  width: 100%;
-  max-width: 300px;              /* 필요 시 조절 */
-  margin: 0 auto;
-  transform: translateY(-160px);
+  flex-direction: column;
+  align-items: center;
 }
 
-.hero-date-stack .hero-time {
-  display: block;
-  font-size: 2.3rem;       /* 더 작게 */
-  margin-top: 4px;       /* 날짜와 간격*/
-  letter-spacing: 2px;   /* 우아한 느낌 */
-  opacity: 0.9;
- } 
-
-
-
-/* "Cormorant Garamond" */
 .hero-date-stack span {
-  font-family: "Bodoni Moda", serif;
-  font-weight: 900;
+  font-family: "Marcellus", serif;
+  font-weight: 500;
   font-style: italic;
-  font-size: clamp(8rem, 15vw, 10rem);
-  line-height: 0.5;
+  font-size: clamp(7rem, 10vw, 9rem);
+  line-height: 0.7;
   text-shadow: 0 2px 4px rgba(255, 255, 0, 0.7);
   color: #ffffff;
 }
 
+/* 날짜 두 줄 약간씩만 좌우로 벌리기 */
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(-39px) translateY(40px);   /* 26 왼쪽으로 */
- } 
-
+  transform: translateX(-8vw) translateY(-5vh);
+}
 .hero-date-stack span:nth-child(2) {
-  transform: translateX(39px)translateY(80px);     /* 03 중앙 */
- } 
-  
-.hero-date-stack span.hero-time {
-  transform: translateX(90px) translateY(15px);
-  font-size: 2.3rem !important;
+  transform: translateX(8vw) translateY(-3vh);
 }
 
+/* 시간 */
+.hero-date-stack .hero-time {
+  font-size: 1.3rem;
+  margin-top: -0.43rem;
+  letter-spacing: 0.15em;
+  transform: translateX(21vw);
+}
 
 .hero::after {
   content: "";
@@ -170,6 +175,60 @@ body {
   
   /* 등장 애니메이션 */
   animation: fadeUp 1.2s ease-out;
+}
+
+@media (min-width: 1024px) {
+  .hero-text-overlay {
+    padding-top: 12vh;   /* 위에서부터 조금 내려오기 */
+    padding-bottom: 6vh; /* 아래쪽도 살짝 여유 */
+  }
+  /* 상단 SIMPLY / MEANT */
+  .hero-top-row {
+    font-size: 2.5rem;   /* 기존 1.0rem → 20% 증가 */
+  }
+
+  /* 하단 TO BE TOGETHER */
+  .hero-bottom-row {
+    font-size: 2.5rem;   /* 기존 1.0rem → 20% 증가 */
+  }
+
+  /* 큰 날짜 숫자들 */
+  .hero-date-stack span {
+    font-size: calc(clamp(7rem, 10vw, 9rem) * 2.5); 
+    /* clamp 전체 크기의 20% 증가 */
+  }
+
+  /* 시간 */
+  .hero-date-stack .hero-time {
+    font-size: 2.5rem !important;  /* 기존 1.3rem → 20% 증가 */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-text-overlay {
+    padding-top: 12vh;   /* 위에서부터 조금 내려오기 */
+    padding-bottom: 6vh; /* 아래쪽도 살짝 여유 */
+  }
+  /* 상단 SIMPLY / MEANT */
+  .hero-top-row {
+    font-size: 1.5rem;   /* 기존 1.0rem → 20% 증가 */
+  }
+
+  /* 하단 TO BE TOGETHER */
+  .hero-bottom-row {
+    font-size: 1.5rem;   /* 기존 1.0rem → 20% 증가 */
+  }
+
+  /* 큰 날짜 숫자들 */
+  .hero-date-stack span {
+    font-size: calc(clamp(7rem, 10vw, 9rem) * 1.5); 
+    /* clamp 전체 크기의 20% 증가 */
+  }
+
+  /* 시간 */
+  .hero-date-stack .hero-time {
+    font-size: 1.5rem !important;  /* 기존 1.3rem → 20% 증가 */
+  }
 }
 
 /* 작은 텍스트 */
@@ -214,6 +273,9 @@ body {
 .hero-scroll-btn:active {
   transform: scale(0.96);
 }
+
+
+
 
 /* 등장 애니메이션 */
 @keyframes fadeUp {
@@ -605,4 +667,152 @@ body {
   font-weight: 700;
 }
 
+#parents {
+  text-align: center;
+  margin-top: 20px;
+}
 
+.parents-box {
+  padding: 10px 0 20px;
+}
+
+/* 3열 그리드: [부모] [의 아들/딸] [본인] */
+.parents-row {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  justify-content: center;   /* 전체를 가운데 정렬 */
+  column-gap: 6px;
+
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+.parents-left {
+  justify-self: end;   /* 오른쪽 끝 정렬 (두 줄 기준 맞추기) */
+}
+
+.parents-middle {
+  justify-self: center;
+  white-space: nowrap; /* '의 아들' / '의 딸' 줄바꿈 방지 */
+}
+
+.parents-right {
+  justify-self: start; /* 왼쪽 정렬 */
+}
+
+.parents-right strong {
+  color: #333;
+  font-weight: 700;
+}
+
+.section-divider {
+  width: 50px;              /* 길이 */
+  height: 1px;              /* 두께 */
+  background-color: #d8d2c7; /* 은은한 베이지/그레이톤 */
+  margin: 38px auto;        /* 위/아래 여백 + 가운데 정렬 */
+  border-radius: 2px;       /* 양끝 둥글게 */
+  opacity: 0.9;
+}
+
+#wedding-date {
+  text-align: center;
+}
+
+/* 날짜 텍스트 */
+.date-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #444;
+}
+
+.date-header p {
+  font-size: 1rem;
+  margin-top: 6px;
+  color: #777;
+}
+
+/* 달력 전체 */
+.calendar-container {
+  margin-top: 24px;
+}
+
+.calendar {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: #555;
+
+  table-layout: fixed;     /* ← 모든 열 같은 너비 */
+}
+
+.calendar th {
+  padding-bottom: 0px;
+  font-weight: 600;
+  padding: 6px 0; 
+}
+.calendar td {
+  height: 38px;          /* 날짜 칸의 세로 높이 */
+  padding: 6px 0;        /* 위아래 여백 */
+  text-align: center;    /* 가운데 정렬 */
+  vertical-align: middle;
+}
+
+/* 요일 색상 */
+.sun { color: #d87c7c; }
+.sat { color: #4c68d8; }
+
+/* 날짜 기본 색 */
+.calendar td {
+  color: #555;
+}
+
+.calendar .selected {
+  background: #ffab2d;
+  color: white !important;
+  width: 30px;             /* 너무 넓지 않게 */
+  height: 30px;
+  border-radius: 50%;
+  padding-bottom: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;               /* 열 너비에 영향 안 주도록 */
+}
+
+/* D-day 영역 */
+.countdown-wrap {
+  margin-top: 28px;
+}
+
+.count-labels {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #aaa;
+}
+
+.count-values {
+  margin-top: 8px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #444;
+}
+
+.dday-text {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.dday-text strong {
+  font-weight: 700;
+  color: #333;
+}

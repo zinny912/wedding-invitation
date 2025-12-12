@@ -27,11 +27,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=Archivo+Black&family=Berkshire+Swash&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bungee&family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Dela+Gothic+One&family=Diphylleia&family=Dongle:wght@300;400&family=Gowun+Batang&family=Gowun+Dodum&family=Grandiflora+One&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&family=Pacifico&family=Parisienne&family=Permanent+Marker&family=Playwrite+NO:wght@100..400&family=Playwrite+RO:wght@100..400&family=Rammetto+One&family=Righteous&family=Sacramento&family=Sekuya&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  <title>승호 ♥ 진희</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
+  <link href="https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=Archivo+Black&family=Berkshire+Swash&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bungee&family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Dela+Gothic+One&family=Diphylleia&family=Dongle:wght@300;400&family=Gowun+Batang&family=Gowun+Dodum&family=Grandiflora+One&family=Hahmlet:wght@100..900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Marcellus&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Pacifico&family=Parisienne&family=Permanent+Marker&family=Playwrite+NO:wght@100..400&family=Playwrite+RO:wght@100..400&family=Rammetto+One&family=Righteous&family=Sacramento&family=Sekuya&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <body>
  <header class="hero">
   <img src="images/gallery/img05.jpg" alt="우리 사진" class="hero-photo" />
@@ -57,12 +53,112 @@
 
   <!-- ✅ 2. 본식 정보 섹션 -->
   <section class="section" id="info">
-    <h2 class="section-title">초대 글</h2>
+    <h5 class="section-title">INVITATION</h5>
+    <h2 class="section-main-title"> 소중한 분들을 초대합니다</h2>
+
+    <div class="section-divider"> </div>
     <p class="section-text">
-      
-      새로운 시작을 함께하려 합니다.<br/>
-      소중한 걸음을 해주신다면 큰 기쁨이 되겠습니다.
+      저희 두 사람의 작은 만남이<br/>
+      사랑의 결실을 이루어<br/>
+      소중한 결혼식을 올리게 되었습니다.<br/><br/>
+
+      평생 서로 귀하게 여기며<br/>
+      첫 마음 그대로 존중하고 배려하며 살겠습니다.<br/><br/>
+
+      오로지 믿음과 사랑을 약속하는 날<br/>
+      오셔서 축복해 주시면 더 없는 기쁨으로<br/>
+      간직하겠습니다.<br/>
+
     </p>
+
+    <div class="section-divider"> </div>
+
+    <section class="section" id="parents">
+      <div class="parents-box">
+
+        <div class="parents-row">
+          <span class="parents-left">박순임</span>
+          <span class="parents-middle">의 아들</span>
+          <span class="parents-right"><strong>최승호</strong></span>
+        </div>
+
+        <div class="parents-row">
+          <span class="parents-left">이용윤 · 김심자</span>
+          <span class="parents-middle">의 딸</span>
+          <span class="parents-right"><strong>이진희</strong></span>
+        </div>
+      </div>
+    </section>
+
+ <!-- ✅ 3. 갤러리 섹션 -->
+  <section class="section" id="gallery">
+    <h5 class="section-title">GALLERY</h5>
+    <h2 class="section-main-title"> 웨딩 갤러리</h2>
+
+    <div class="gallery-wrapper">
+      <!-- 9장만 고정 슬롯으로 두고 JS로 사진을 바꿔 끼웁니다 -->
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+      <img class="gallery-item" loading="lazy">
+
+      <!-- 가운데 줄 양 옆에 들어갈 이동 버튼 -->
+      <button class="gallery-nav prev" id="gallery-prev">‹</button>
+      <button class="gallery-nav next" id="gallery-next">›</button>
+    </div>
+
+    <p class="gallery-page-indicator" id="gallery-page-indicator">
+      1 / 10
+    </p>
+  </section>
+
+  <section class="section" id="wedding-date">
+  <div class="date-header">
+    <h2>2026.03.28</h2>
+    <p>토요일 오후 2시 30분</p>
+  </div>
+
+  <div class="calendar-container">
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th class="sun">일</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th class="sat">토</th>
+        </tr>
+      </thead>
+      <tbody id="calendar-body"></tbody>
+    </table>
+  </div>
+
+  <div class="countdown-wrap">
+    <div class="count-labels">
+      <span>DAYS</span>
+      <span>HOUR</span>
+      <span>MIN</span>
+      <span>SEC</span>
+    </div>
+
+    <div class="count-values" id="countdown">
+      000 : 00 : 00 : 00
+    </div>
+
+    <p class="dday-text">
+      승호, 진희의 결혼식이 <strong id="dday-number">000</strong>일 남았습니다.
+    </p>
+  </div>
+</section>
 
     <div class="info-box">
       <p><strong>일시</strong> : 2026년 3월 28일 토요일 오후 2시 30분</p>
@@ -91,34 +187,7 @@
     </div>
 </section>
 
-  <!-- ✅ 3. 갤러리 섹션 -->
-  <section class="section" id="gallery">
-    <h2 class="section-title">우리 사진</h2>
-    <p class="section-text">함께한 순간들을 담았어요.</p>
-
-    <div class="gallery-wrapper">
-      <!-- 9장만 고정 슬롯으로 두고 JS로 사진을 바꿔 끼웁니다 -->
-      <img class="gallery-item" loading="lazy">
-      <img class="gallery-item" loading="lazy">
-      <img class="gallery-item" loading="lazy">
-
-      <img class="gallery-item" loading="lazy">
-      <img class="gallery-item" loading="lazy">
-      <img class="gallery-item" loading="lazy">
-
-      <img class="gallery-item" loading="lazy">
-      <img class="gallery-item" loading="lazy">
-      <img class="gallery-item" loading="lazy">
-
-      <!-- 가운데 줄 양 옆에 들어갈 이동 버튼 -->
-      <button class="gallery-nav prev" id="gallery-prev">‹</button>
-      <button class="gallery-nav next" id="gallery-next">›</button>
-    </div>
-
-    <p class="gallery-page-indicator" id="gallery-page-indicator">
-      1 / 10
-    </p>
-  </section>
+ 
 
 
   <!-- ✅ 4. 혼주 계좌 섹션 -->

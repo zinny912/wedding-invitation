@@ -184,3 +184,67 @@ modal.addEventListener("touchend", (e) => {
     modalPrev();
   }
 });
+
+/* -------------------------------
+   1) 달력 자동 생성
+-------------------------------- */
+function generateCalendar(year, month) {
+  const tbody = document.getElementById("calendar-body");
+  tbody.innerHTML = "";
+
+  const firstDay = new Date(year, month - 1, 1).getDay();
+  const lastDate = new Date(year, month, 0).getDate();
+
+  let row = document.createElement("tr");
+
+  // 첫째 줄 앞의 빈칸 삽입
+  for (let i = 0; i < firstDay; i++) {
+    row.appendChild(document.createElement("td"));
+  }
+
+  // 날짜 출력
+  for (let date = 1; date <= lastDate; date++) {
+    const cell = document.createElement("td");
+
+    if (date === 28) {
+      cell.innerHTML = `<span class="selected">${date}</span>`;
+    } else {
+      cell.textContent = date;
+    }
+
+    row.appendChild(cell);
+
+    if ((firstDay + date) % 7 === 0) {
+      tbody.appendChild(row);
+      row = document.createElement("tr");
+    }
+  }
+
+  tbody.appendChild(row);
+}
+
+generateCalendar(2026, 3);
+
+/* -------------------------------
+   2) D-day 카운트다운
+-------------------------------- */
+
+function updateCountdown() {
+  const weddingDay = new Date("2026-03-28T14:30:00");
+  const now = new Date();
+
+  const diff = weddingDay - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    `${days} : ${hours} : ${mins} : ${secs}`;
+
+  document.getElementById("dday-number").textContent = days;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
