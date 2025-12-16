@@ -11,7 +11,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Noto Sans KR", sans-serif;
-  background: #e0fc99ce;
+  background: #f9f9f9;
   color: #333;
   line-height: 1.6;
 }
@@ -63,7 +63,7 @@ body {
 .hero {
   display: flex;
   justify-content: center; /* ✅ 사진을 가운데로 */
-  background: #e0fc99ce;   /* ✅ 양옆 여백 색도 여기서 맞춤 */
+  background: #f9f9f9;   /* ✅ 양옆 여백 색도 여기서 맞춤 */
 }
 
 .hero-media {
@@ -263,7 +263,7 @@ body {
   max-width: 360px;          /* 모바일에서 적당한 너비 */
   border-radius: 0px;
   overflow: hidden;
-  background: #e0fc99ce;
+  background: #f9f9f9;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -456,7 +456,7 @@ body {
 .account-accordion {
   width: 100%;
   border: 0;
-  background: #f4ed27;
+  background: #dfdfdf;
   padding: 14px 16px;
   display: flex;
   align-items: center;
