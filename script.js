@@ -7,10 +7,85 @@ function scrollToSection(id) {
 
 // 계좌 토글
 function toggleAccount(type) {
-  const el = document.getElementById(`account-${type}`);
-  if (!el) return;
-  const isShown = el.style.display === "block";
-  el.style.display = isShown ? "none" : "block";
+  const targetList = document.getElementById(`account-${type}`);
+  if (!targetList) return;
+
+  // ✅ 모든 계좌 리스트 닫기 (1개만 열리게)
+  document.querySelectorAll("#accounts .account-list").forEach((list) => {
+    if (list !== targetList) list.style.display = "none";
+  });
+
+  // aria-expanded도 같이 정리
+  document.querySelectorAll("#accounts .account-accordion").forEach((btn) => {
+    btn.setAttribute("aria-expanded", "false");
+  });
+
+  // ✅ 대상만 토글
+  const headerBtn = targetList.previousElementSibling;
+  const isOpen = targetList.style.display === "block";
+
+  targetList.style.display = isOpen ? "none" : "block";
+  if (headerBtn && headerBtn.classList.contains("account-accordion")) {
+    headerBtn.setAttribute("aria-expanded", String(!isOpen));
+  }
+}
+
+
+// ✅ 카톡 링크 설정 (여기만 너 번호/링크로 바꾸면 됨)
+const CONTACTS = {
+  "최승호": [
+    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
+  ],
+  "박순임": [
+    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
+  ],
+  "이진희": [
+    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
+  ],
+  "이용윤": [
+    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
+  ],
+  "김심자": [
+    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
+  ],
+};
+
+const contactModal = document.getElementById("contact-modal");
+const contactActionsEl = document.getElementById("contact-actions");
+const contactSubEl = document.getElementById("contact-sub");
+
+function openContactModal(name) {
+  const actions = CONTACTS[name] || [];
+  if (!contactModal || !contactActionsEl) return;
+
+  contactSubEl.textContent = `${name}님께 연락하기`;
+
+  contactActionsEl.innerHTML = actions
+    .map(
+      (a) => `
+      <button class="contact-action" type="button" onclick="window.open('${a.url}', '_blank')">
+        <span class="label">${a.label}</span>
+        <span class="hint">${a.hint}</span>
+      </button>
+    `
+    )
+    .join("");
+
+  contactModal.style.display = "block";
+  contactModal.setAttribute("aria-hidden", "false");
+}
+
+function closeContactModal() {
+  if (!contactModal) return;
+  contactModal.style.display = "none";
+  contactModal.setAttribute("aria-hidden", "true");
+}
+
+// 모달 바깥 클릭 시 닫기
+if (contactModal) {
+  contactModal.addEventListener("click", (e) => {
+    if (e.target === contactModal) closeContactModal();
+  });
 }
 
 // 텍스트 복사
@@ -41,7 +116,7 @@ function copyText(text) {
 // 갤러리 페이징
 // ======================
 const TOTAL_IMAGES = 90;   // 전체 사진 개수
-const IMAGES_PER_PAGE = 9; // 한 페이지당 9장
+const IMAGES_PER_PAGE = 8; // 한 페이지당 9장
 const TOTAL_PAGES = Math.ceil(TOTAL_IMAGES / IMAGES_PER_PAGE);
 
 let currentPage = 1;
@@ -128,6 +203,24 @@ function modalNext() {
 document.addEventListener("DOMContentLoaded", () => {
   // 첫 페이지 렌더링
   renderGalleryPage(currentPage);
+  const targets = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target); // ✅ 한 번만 등장
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  targets.forEach((el) => io.observe(el));
+
 
   // 갤러리 썸네일 클릭 → 모달 열기
   const galleryWrapper = document.querySelector(".gallery-wrapper");

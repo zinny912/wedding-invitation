@@ -60,14 +60,18 @@ body {
 }
 
 /* ✅ 1. 첫 화면 (Hero) – 화면 꽉 차는 배경 사진 */
-/* 화면 꽉 채우는 메인 사진 */
 .hero {
-  position: relative;
-  width: 100%;
-  height: auto;   /* 한 화면 꽉 */
-  background: #faf7f2;  /* 페이지랑 비슷한 베이스 컬러 */
-  overflow: hidden;
+  display: flex;
+  justify-content: center; /* ✅ 사진을 가운데로 */
+  background: #e0fc99ce;   /* ✅ 양옆 여백 색도 여기서 맞춤 */
 }
+
+.hero-media {
+  position: relative;  /* ✅ overlay 기준점 */
+  width: 100%;
+  max-width: 480px;    /* 너가 모바일 카드 느낌 유지하고 싶으면 */
+}
+
 /* 사진 위 텍스트 */
 .hero-text-overlay {
   position: absolute;
@@ -82,26 +86,33 @@ body {
 }
 
 .hero-photo {
-  /* position: absolute; */
-  inset: 0;        /* top/right/bottom/left = 0 */
   width: 100%;
   height: auto;
-  object-fit: contain;           /* ✔ 화면 꽉 채우기 (조금 잘려도 됨) */
-  object-position: 50% 20%;    /* ✔ 얼굴 기준으로 위아래 위치 조절 */
+  display: block;
 }
 
-/* SIMPLY / MEANT / TO BE TOGETHER 는 지금 쓰시는 거 그대로 유지 */
+.hero-text-overlay {
+  position: absolute;
+  inset: 0; /* ✅ 사진 영역 딱 맞게 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 18px;
+}
+
 .hero-top-row {
   width: 100%;
-  /* max-width: 360px; */
   display: flex;
   justify-content: space-between;
+
   font-family: "Amarna", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
-  font-size: 1.0rem;
-  transform: translateY(-2vw);
+  font-size: 1rem;
+
+  transform: translateY(-2vh); /* ✅ 이제 translate 필요 없음 */
 }
+
 .hero-bottom-row {
   width: 100%;
   display: flex;
@@ -128,7 +139,7 @@ body {
   font-family: "Marcellus", serif;
   font-weight: 500;
   font-style: italic;
-  font-size: clamp(7rem, 10vw, 9rem);
+  font-size: clamp(4rem, 10vw, 6rem);
   line-height: 0.7;
   text-shadow: 0 2px 4px rgba(255, 255, 0, 0.7);
   color: #ffffff;
@@ -136,10 +147,10 @@ body {
 
 /* 날짜 두 줄 약간씩만 좌우로 벌리기 */
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(-8vw) translateY(-5vh);
+  transform: translateX(-3vw) translateY(-5vh);
 }
 .hero-date-stack span:nth-child(2) {
-  transform: translateX(8vw) translateY(-3vh);
+  transform: translateX(3vw) translateY(-3vh);
 }
 
 /* 시간 */
@@ -147,20 +158,14 @@ body {
   font-size: 1.3rem;
   margin-top: -0.43rem;
   letter-spacing: 0.15em;
-  transform: translateX(21vw);
+  transform: translateX(11vw);
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.10); /* ✔ 밝은 드레스 대비 개선 */
-  z-index: -1;                     /* 사진 위 / 텍스트 아래 */
-}
+
 
 /* 텍스트 영역 */
 .hero-content {
-  position: relative;
+  position: absolute;
   z-index: 1;
   height: 100%;
   max-width: 480px;
@@ -175,60 +180,6 @@ body {
   
   /* 등장 애니메이션 */
   animation: fadeUp 1.2s ease-out;
-}
-
-@media (min-width: 1024px) {
-  .hero-text-overlay {
-    padding-top: 12vh;   /* 위에서부터 조금 내려오기 */
-    padding-bottom: 6vh; /* 아래쪽도 살짝 여유 */
-  }
-  /* 상단 SIMPLY / MEANT */
-  .hero-top-row {
-    font-size: 2.5rem;   /* 기존 1.0rem → 20% 증가 */
-  }
-
-  /* 하단 TO BE TOGETHER */
-  .hero-bottom-row {
-    font-size: 2.5rem;   /* 기존 1.0rem → 20% 증가 */
-  }
-
-  /* 큰 날짜 숫자들 */
-  .hero-date-stack span {
-    font-size: calc(clamp(7rem, 10vw, 9rem) * 2.5); 
-    /* clamp 전체 크기의 20% 증가 */
-  }
-
-  /* 시간 */
-  .hero-date-stack .hero-time {
-    font-size: 2.5rem !important;  /* 기존 1.3rem → 20% 증가 */
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .hero-text-overlay {
-    padding-top: 12vh;   /* 위에서부터 조금 내려오기 */
-    padding-bottom: 6vh; /* 아래쪽도 살짝 여유 */
-  }
-  /* 상단 SIMPLY / MEANT */
-  .hero-top-row {
-    font-size: 1.5rem;   /* 기존 1.0rem → 20% 증가 */
-  }
-
-  /* 하단 TO BE TOGETHER */
-  .hero-bottom-row {
-    font-size: 1.5rem;   /* 기존 1.0rem → 20% 증가 */
-  }
-
-  /* 큰 날짜 숫자들 */
-  .hero-date-stack span {
-    font-size: calc(clamp(7rem, 10vw, 9rem) * 1.5); 
-    /* clamp 전체 크기의 20% 증가 */
-  }
-
-  /* 시간 */
-  .hero-date-stack .hero-time {
-    font-size: 1.5rem !important;  /* 기존 1.3rem → 20% 증가 */
-  }
 }
 
 /* 작은 텍스트 */
@@ -300,20 +251,6 @@ body {
   }
 }
 
-/* 본식 정보 박스 */
-.info-box {
-  background: #fff;
-  border-radius: 16px;
-  padding: 16px 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.info-box p + p {
-  margin-top: 4px;
-}
-
 /* 지도 영역 */
 .map-placeholder {
   margin-top: 18px;
@@ -324,9 +261,9 @@ body {
 .map-inner {
   width: 100%;
   max-width: 360px;          /* 모바일에서 적당한 너비 */
-  border-radius: 16px;
+  border-radius: 0px;
   overflow: hidden;
-  background: #f9f9f9;
+  background: #e0fc99ce;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -365,7 +302,7 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  gap: 10px;
 }
 
 .gallery-item {
@@ -373,7 +310,7 @@ body {
   height: 160px;
   object-fit: cover;
   object-position: top center;
-  border-radius: 5px;
+  border-radius: 0px;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -383,64 +320,42 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* ✅ 갤러리 3x3 + 가운데 이전/다음 버튼 레이아웃 */
 .gallery-wrapper {
   display: grid;
-  grid-template-columns: auto repeat(3, 1fr) auto; /* [빈/버튼] + 3장 + [버튼/빈] */
-  grid-template-rows: repeat(3, auto);
-  gap: 6px;
-  align-items: center;
+  grid-template-columns: repeat(2, 1fr); /* ✅ 2열 */
+  gap: 10px;
+
   max-width: 480px;
   margin: 0 auto;
+  position: relative;
 }
 
-/* 9장 이미지 위치 (1~3: 첫 줄, 4~6: 둘째 줄, 7~9: 세번째 줄) */
 .gallery-item {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 3 / 4;     /* ✅ 웨딩 사진 비율 예쁨 */
   object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-radius: 0px;
 }
 
-/* 첫 줄 */
-.gallery-item:nth-of-type(1) { grid-row: 1; grid-column: 2; }
-.gallery-item:nth-of-type(2) { grid-row: 1; grid-column: 3; }
-.gallery-item:nth-of-type(3) { grid-row: 1; grid-column: 4; }
-
-/* 둘째 줄 */
-.gallery-item:nth-of-type(4) { grid-row: 2; grid-column: 2; }
-.gallery-item:nth-of-type(5) { grid-row: 2; grid-column: 3; }
-.gallery-item:nth-of-type(6) { grid-row: 2; grid-column: 4; }
-
-/* 셋째 줄 */
-.gallery-item:nth-of-type(7) { grid-row: 3; grid-column: 2; }
-.gallery-item:nth-of-type(8) { grid-row: 3; grid-column: 3; }
-.gallery-item:nth-of-type(9) { grid-row: 3; grid-column: 4; }
-
-/* 가운데 줄 양옆의 <, > 버튼 */
 .gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
   background: none;
   border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  padding: 8px;
-  line-height: 1;
   color: #444;
+  cursor: pointer;
 }
 
 .gallery-nav.prev {
-  grid-row: 2;
-  grid-column: 1;
-  justify-self: center;
+  left: -24px;
 }
 
 .gallery-nav.next {
-  grid-row: 2;
-  grid-column: 5;
-  justify-self: center;
+  right: -24px;
 }
+
 
 /* 페이지 표시 텍스트 */
 .gallery-page-indicator {
@@ -450,77 +365,196 @@ body {
   color: #777;
 }
 
+.location-section {
+  text-align: center;
+}
+
+.location-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #aaa;
+  font-family: "Lora";
+  margin-bottom: 6px;
+}
+
+.location-title {
+  font-family: "Noto Sans Korean";
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.location-text {
+  margin-bottom: 20px;
+}
+
+.location-place-main {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.location-place-sub {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.location-tel {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* 지도 카드 */
+.location-map {
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.location-map img {
+  width: 100%;
+  display: block;
+}
+
+/* 하단 버튼 */
+.location-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: 100%;
+  padding: 14px 0;
+
+  border-radius: 14px;
+  border: 1px solid #eee;
+
+  background: #fff;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.location-btn:active {
+  transform: scale(0.98);
+}
 
 /* ✅ 4. 계좌 섹션 */
-.account-group {
-  margin-bottom: 16px;
-}
-
-.account-toggle {
-  width: 100%;
-  border-radius: 12px;
-  border: none;
-  padding: 12px 14px;
-  text-align: left;
-  font-size: 0.95rem;
-  font-weight: 600;
-  background: #f0e7da;
-  cursor: pointer;
-}
-
-.account-list {
-  margin-top: 10px;
+.account-card {
   background: #fff;
-  border-radius: 12px;
-  padding: 10px 12px;
-  display: none; /* 처음에는 숨김 */
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-top: 14px;
 }
 
-.account-item + account-item {
-  margin-top: 8px;
-}
-
-.account-item {
-  display: grid;
-  grid-template-columns: 1.1fr 2fr auto;  /* 이름 / 계좌 / 버튼 */
-  column-gap: 8px;
-  row-gap: 4px;
+/* 아코디언 헤더 */
+.account-accordion {
+  width: 100%;
+  border: 0;
+  background: #f4ed27;
+  padding: 14px 16px;
+  display: flex;
   align-items: center;
-  font-size: 0.95rem;   /* 폰트 조금 키움 */
-}
-
-
-.account-name {
-  font-weight: 600;
-  font-size: 1rem;        /* 이전보다 크게 */
-}
-
-.account-bank {
-  font-size: 0.9rem;
-  color: #444;
-}
-
-
-.copy-btn {
-  padding: 7px 14px;
-  font-size: 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0);
-  background: linear-gradient(135deg, #fdfaf5, #f2e6d9);
-  color: #333;
+  justify-content: space-between;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.account-accordion-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.account-accordion-icon {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+  color: #777;
+}
+
+/* 열렸을 때 화살표 회전 */
+.account-accordion[aria-expanded="true"] .account-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* 리스트 */
+.account-list {
+  display: none;
+}
+
+/* 행 */
+.account-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 왼쪽/오른쪽 아이콘 버튼 공통 */
+.icon-btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 52px;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
 }
 
-.copy-btn:active {
-  transform: scale(0.96) translateY(1px);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
-  background: linear-gradient(135deg, #f0e3d4, #e3d2c0);
+/* 왼쪽 복사 아이콘 */
+.icon-btn.copy {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: #777;
+}
+
+/* 가운데 텍스트 */
+.account-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-person {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.account-number {
+  font-size: 0.95rem;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 오른쪽 노란 원 버튼 */
+.icon-btn.talk {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #ffdd00;
+  color: #111;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.icon-btn.talk svg {
+  transform: translateY(1px);
+}
+
+/* 눌림 효과 */
+.icon-btn.talk:active {
+  transform: scale(0.97);
+}
+.icon-btn.copy:active {
+  transform: scale(0.96);
 }
 
 
@@ -654,12 +688,6 @@ body {
   }
 }
 
-/* 모바일 기준이니, 큰 화면에서는 살짝 여백만 */
-@media (min-width: 768px) {
-  .hero-content {
-    padding-top: 120px;
-  }
-}
 
 @font-face {
   font-family: 'Bodoni Moda';
@@ -722,13 +750,15 @@ body {
 
 /* 날짜 텍스트 */
 .date-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: "Amarna";
+  font-weight: 400;
   color: #444;
 }
 
 .date-header p {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-family: "Gowun Dodum";
   margin-top: 6px;
   color: #777;
 }
@@ -751,6 +781,7 @@ body {
 
 .calendar th {
   padding-bottom: 0px;
+  font-family: "Gowun Dodum";
   font-weight: 600;
   padding: 6px 0; 
 }
@@ -759,6 +790,7 @@ body {
   padding: 6px 0;        /* 위아래 여백 */
   text-align: center;    /* 가운데 정렬 */
   vertical-align: middle;
+  font-family: "Gowun Dodum";
 }
 
 /* 요일 색상 */
@@ -776,7 +808,6 @@ body {
   width: 30px;             /* 너무 넓지 않게 */
   height: 30px;
   border-radius: 50%;
-  padding-bottom: 3px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -796,23 +827,170 @@ body {
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   color: #aaa;
+  font-family: "Lora";
 }
 
 .count-values {
   margin-top: 8px;
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
+  font-family: "Amarna";
   color: #444;
+  
 }
 
 .dday-text {
   margin-top: 10px;
   font-size: 1rem;
+  font-weight: 500;
   color: #555;
+  font-family: "Gowun Dodum";
 }
 
 .dday-text strong {
-  font-weight: 700;
+  font-weight: 900;
   color: #333;
+  font-family: "Amarna";
+}
+
+/* ✅ 스크롤 등장 애니메이션 */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 사용자 설정(모션 줄이기) 존중 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* 방명록 */
+#guestbook { text-align: center; }
+
+.guestbook-card{
+  background:#fff;
+  border-radius:5px;
+  padding:6px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.guestbook-form{ display:flex; flex-direction:column; gap:10px; }
+
+.gb-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+
+.gb-input, .gb-textarea{
+  width:100%;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:12px;
+  padding:12px 12px;
+  font-family:"Gowun Dodum";
+  font-size:0.95rem;
+  outline:none;
+  background:#fafafa;
+}
+
+.gb-textarea{ min-height:110px; resize:none; }
+
+.gb-submit{
+  border:none;
+  border-radius:0px;
+  padding:12px 14px;
+  font-family:"Gowun Dodum";
+  font-size:1rem;
+  cursor:pointer;
+  background:#111;
+  color:#fff;
+}
+
+.gb-hint{
+  font-size:0.78rem;
+  color:#777;
+  margin-top:2px;
+}
+
+.guestbook-list{
+  margin-top:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.gb-item{
+  background:#fff;
+  border-radius:16px;
+  padding:14px 14px 12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  text-align:left;
+}
+
+.gb-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.gb-name{
+  font-weight:700;
+  color:#222;
+  font-family:"Gowun Dodum";
+}
+
+.gb-date{
+  font-size:0.78rem;
+  color:#888;
+  font-family:"Lora";
+  letter-spacing:0.03em;
+}
+
+.gb-msg{
+  white-space:pre-wrap;
+  color:#444;
+  font-family:"Gowun Dodum";
+  line-height:1.6;
+}
+
+.gb-actions{
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+}
+
+.gb-delete{
+  border:1px solid rgba(0,0,0,0.08);
+  background:#fff;
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:0.85rem;
+  cursor:pointer;
+}
+
+.gb-more{
+  margin-top:12px;
+  width:100%;
+  max-width:480px;
+  border:none;
+  border-radius:12px;
+  padding:12px 14px;
+  background: rgba(255,255,255,0.65);
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  cursor:pointer;
 }
