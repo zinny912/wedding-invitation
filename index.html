@@ -29,6 +29,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=Archivo+Black&family=Berkshire+Swash&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bungee&family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Dela+Gothic+One&family=Diphylleia&family=Dongle:wght@300;400&family=Gowun+Batang&family=Gowun+Dodum&family=Grandiflora+One&family=Hahmlet:wght@100..900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Marcellus&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Pacifico&family=Parisienne&family=Permanent+Marker&family=Playwrite+NO:wght@100..400&family=Playwrite+RO:wght@100..400&family=Rammetto+One&family=Righteous&family=Sacramento&family=Sekuya&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDAtRxJhKtysr03Ofhsve2UUax0F8OMA6o",
+    authDomain: "mobile-wedding-card-c9412.firebaseapp.com",
+    projectId: "mobile-wedding-card-c9412",
+    storageBucket: "mobile-wedding-card-c9412.firebasestorage.app",
+    messagingSenderId: "480729498294",
+    appId: "1:480729498294:web:3c0ca297773c5bf7825c17",
+    measurementId: "G-QWF0GK1X02"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
  <header class="hero">
   <div class="hero-media">
     <img src="images/gallery/img05.jpg" alt="우리 사진" class="hero-photo" />
