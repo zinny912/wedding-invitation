@@ -108,10 +108,15 @@ body {
 
 .hero-caption{ 
   position: absolute; 
-   inset: 0;           /* 사진 전체를 덮는 영역으로 */
+  inset: 0;           /* 사진 전체를 덮는 영역으로 */
   z-index: 3;
   pointer-events: none;
 } 
+
+.hero-slide.slide-from-left  .hero-media,
+.hero-slide.slide-from-right .hero-media{
+  max-width: 560px;
+}
 
 /* ✅ 1) first: 오른쪽 상단 */
 .hero-caption__first{
@@ -124,6 +129,7 @@ body {
   will-change: transform, opacity;
   color: #fff;
   font-size: 5rem;
+  max-width: 560px;
 }
 
 .hero-caption__sub{
@@ -133,30 +139,28 @@ body {
   font-family: "DM Serif Display", serif;
   opacity: 0;
   font-size: 5rem;
-  transform: translateX(-50%) translateX(-120%);
+  transform: translateX(-50%);
   will-change: transform, opacity;
   color: #000;
+  max-width: 560px;
 }
+
+.hero-caption__first{ opacity:0; transform: translateX(120%); }
+.hero-caption__sub{ opacity:0; transform: translateX(-50%) translateX(-120%); }
+
+/* 활성 슬라이드에서 실행 */
 .hero-slide.is-active .hero-caption__first{
   animation: captionInRight 1200ms cubic-bezier(.22,.61,.36,1) forwards;
 }
-
 .hero-slide.is-active .hero-caption__sub{
   animation: captionInLeft 1400ms cubic-bezier(.22,.61,.36,1) 120ms forwards;
 }
 
 @keyframes captionInRight{
-  to{
-    opacity: .92;
-    transform: translateX(0);
-  }
+  to{ opacity:.92; transform: translateX(0); }
 }
-
 @keyframes captionInLeft{
-  to{
-    opacity: .92;
-    transform: translateX(-50%) translateX(0);
-  }
+  to{ opacity:.92; transform: translateX(-50%) translateX(0); }
 }
 /* 사진 위 텍스트 */
 .hero-text-overlay {
@@ -170,7 +174,6 @@ body {
   color: #d6e111;
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
-
 
 .hero-text-overlay {
   position: absolute;
@@ -203,7 +206,7 @@ body {
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 2rem;
-  transform: translateY(17px);
+  transform: translateY(-20px);
 }
 
 .hero-date-stack {
@@ -239,7 +242,7 @@ body {
   font-size: 1.3rem;
   margin-top: -0.43rem;
   letter-spacing: 0.15em;
-  transform: translateX(11vw);
+  transform: translateX(14vw);
 }
 
 .hero-date-stack .hero-time .ampm {
