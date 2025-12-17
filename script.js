@@ -30,64 +30,6 @@ function toggleAccount(type) {
   }
 }
 
-
-// ✅ 카톡 링크 설정 (여기만 너 번호/링크로 바꾸면 됨)
-const CONTACTS = {
-  "최승호": [
-    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
-  ],
-  "박순임": [
-    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
-  ],
-  "이진희": [
-    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
-  ],
-  "이용윤": [
-    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
-  ],
-  "김심자": [
-    { label: "카카오톡", hint: "채팅 열기", url: "https://open.kakao.com/o/여기에오픈채팅ID" },
-  ],
-};
-
-const contactModal = document.getElementById("contact-modal");
-const contactActionsEl = document.getElementById("contact-actions");
-const contactSubEl = document.getElementById("contact-sub");
-
-function openContactModal(name) {
-  const actions = CONTACTS[name] || [];
-  if (!contactModal || !contactActionsEl) return;
-
-  contactSubEl.textContent = `${name}님께 연락하기`;
-
-  contactActionsEl.innerHTML = actions
-    .map(
-      (a) => `
-      <button class="contact-action" type="button" onclick="window.open('${a.url}', '_blank')">
-        <span class="label">${a.label}</span>
-        <span class="hint">${a.hint}</span>
-      </button>
-    `
-    )
-    .join("");
-
-  contactModal.style.display = "block";
-  contactModal.setAttribute("aria-hidden", "false");
-}
-
-function closeContactModal() {
-  if (!contactModal) return;
-  contactModal.style.display = "none";
-  contactModal.setAttribute("aria-hidden", "true");
-}
-
-// 모달 바깥 클릭 시 닫기
-if (contactModal) {
-  contactModal.addEventListener("click", (e) => {
-    if (e.target === contactModal) closeContactModal();
-  });
-}
-
 // 텍스트 복사
 function copyText(text) {
   if (navigator.clipboard && window.isSecureContext) {

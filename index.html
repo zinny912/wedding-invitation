@@ -141,7 +141,7 @@
       <button class="gallery-nav next" id="gallery-next">›</button>
     </div>
 
-    <p class="gallery-page-indicator" id="gallery-page-indicator">
+    <p class="gallery-page-indicator reveal" id="gallery-page-indicator">
       1 / 10
     </p>
   </section>
@@ -224,7 +224,8 @@
 
   <!-- ✅ 4. 혼주 계좌 섹션 -->
   <section class="section" id="accounts">
-  <h2 class="section-title reveal">마음 전하실 곳</h2>
+  <h5 class="section-title reveal">ACCOUNT</h5>
+  <h2 class="section-main-title reveal">마음 전하실 곳</h2>
   <p class="section-text reveal">
     축하의 마음만으로도 충분하지만,<br />
     전해주신 정성은 소중히 간직하겠습니다.
@@ -343,29 +344,37 @@
   </div>
 </section>
 
-
-<section class="section" id="guestbook">
-  <h5 class="section-title">GUESTBOOK</h5>
-  <h2 class="section-main-title">방명록</h2>
-
-  <div class="guestbook-card">
-    <form id="guestbook-form" class="guestbook-form">
-      <div class="gb-row">
-        <input id="gb-name" class="gb-input" type="text" maxlength="20" placeholder="이름" required>
-        <input id="gb-pass" class="gb-input" type="password" maxlength="20" placeholder="비밀번호(삭제용)" required>
-      </div>
-
-      <textarea id="gb-message" class="gb-textarea" maxlength="300" placeholder="축하 한마디 남겨주세요 (최대 300자)" required></textarea>
-
-      <button class="gb-submit" type="submit">남기기</button>
-      <p class="gb-hint">※ 비밀번호는 나중에 본인이 글 삭제할 때 필요해요.</p>
-    </form>
+<section class="section reveal" id="guestbook">
+  <div class="gb-head">
+    <h5 class="section-title">GUESTBOOK</h5>
+    <h2 class="section-main-title">방명록</h2>
   </div>
 
-  <div class="guestbook-list" id="guestbook-list"></div>
+  <div id="guestbookList" class="gb-list"></div>
 
-  <button class="gb-more" id="gb-more" type="button">더 보기</button>
+  <button id="gbOpen" class="gb-fab">작성하기</button>
+
+  <!-- 작성 모달 -->
+  <div id="gbModal" class="gb-modal" aria-hidden="true">
+    <div class="gb-modal__card">
+      <button type="button" id="gbClose" class="gb-modal__close">×</button>
+      <div class="gb-modal__title">축하글 작성</div>
+      <div class="section-divider_long"></div>
+
+      <form id="guestbookForm" class="gb-form">
+        <label>이름 <span>*</span></label>
+        <input id="gbName" maxlength="20" placeholder="이름을 입력해주세요." required />
+        <label>내용 <span>*</span></label>
+        <textarea id="gbMessage" maxlength="300" placeholder="축하 메시지를 입력해주세요." required></textarea>
+
+        <div class="gb-actions">
+          <button type="submit" class="gb-btn">축하의 글 전달하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
+
 
 
 
@@ -382,5 +391,6 @@
 
 
   <script src="script.js"></script>
+  <script type="module" src="./guestbook.js"></script>
 </body>
 </html>

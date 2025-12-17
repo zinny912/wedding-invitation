@@ -21,6 +21,7 @@ body {
   max-width: 480px;
   margin: 0 auto;
   padding: 32px 20px;
+  margin-top: 150px;
 }
 
 .section-title {
@@ -44,20 +45,14 @@ body {
 }
 
 .section-text {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   text-align: center;
   color: #555;
   margin-bottom: 20px;
+  font-family: "Gowun Dodum";
+  font-weight: 500;
 }
 
-
-/* 폰트 */
-.amarna-400 {
-  font-family: "Amarna", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
 
 /* ✅ 1. 첫 화면 (Hero) – 화면 꽉 차는 배경 사진 */
 .hero {
@@ -161,8 +156,6 @@ body {
   transform: translateX(11vw);
 }
 
-
-
 /* 텍스트 영역 */
 .hero-content {
   position: absolute;
@@ -224,9 +217,6 @@ body {
 .hero-scroll-btn:active {
   transform: scale(0.96);
 }
-
-
-
 
 /* 등장 애니메이션 */
 @keyframes fadeUp {
@@ -356,10 +346,9 @@ body {
   right: -24px;
 }
 
-
 /* 페이지 표시 텍스트 */
 .gallery-page-indicator {
-  margin-top: 8px;
+  margin-top: 28px;
   text-align: center;
   font-size: 0.85rem;
   color: #777;
@@ -367,6 +356,7 @@ body {
 
 .location-section {
   text-align: center;
+  margin-top: 250px;
 }
 
 .location-label {
@@ -441,6 +431,13 @@ body {
 
 .location-btn:active {
   transform: scale(0.98);
+}
+
+
+.map-place-main,
+ .map-place-sub,
+ .map-tel {
+  font-family: "Gowun Dodum";
 }
 
 /* ✅ 4. 계좌 섹션 */
@@ -702,6 +699,7 @@ body {
 
 .parents-box {
   padding: 10px 0 20px;
+  margin-top: 50px;
 }
 
 /* 3열 그리드: [부모] [의 아들/딸] [본인] */
@@ -711,7 +709,7 @@ body {
   justify-content: center;   /* 전체를 가운데 정렬 */
   column-gap: 6px;
 
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #666;
   margin-bottom: 4px;
   line-height: 1.6;
@@ -742,6 +740,15 @@ body {
   margin: 38px auto;        /* 위/아래 여백 + 가운데 정렬 */
   border-radius: 2px;       /* 양끝 둥글게 */
   opacity: 0.9;
+}
+
+.section-divider_long {
+  width: 380px;              /* 길이 */
+  height: 1px;              /* 두께 */
+  background-color: #d8d2c7; /* 은은한 베이지/그레이톤 */
+  margin: 18px auto;        /* 위/아래 여백 + 가운데 정렬 */
+  border-radius: 2px;       /* 양끝 둥글게 */
+  opacity: 0.7;
 }
 
 #wedding-date {
@@ -877,120 +884,191 @@ body {
 }
 
 /* 방명록 */
-#guestbook { text-align: center; }
-
-.guestbook-card{
-  background:#fff;
-  border-radius:5px;
-  padding:6px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+.gb-head { 
+  text-align:center; 
+  margin: 28px 0 18px; 
 }
 
-.guestbook-form{ display:flex; flex-direction:column; gap:10px; }
-
-.gb-row{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:10px;
+.gb-en { 
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: "Lora";
+  text-align: center;
+  color: #7d7d7d;
+  margin-top: 50px;
+  margin-bottom: 7px;
+  letter-spacing: 0.2rem;
+  
 }
 
-.gb-input, .gb-textarea{
-  width:100%;
-  border:1px solid rgba(0,0,0,0.08);
-  border-radius:12px;
-  padding:12px 12px;
-  font-family:"Gowun Dodum";
-  font-size:0.95rem;
-  outline:none;
-  background:#fafafa;
+.gb-ko { 
+  font-weight: 400;
+  font-family: "Noto Sans Korean";
+  text-align: center;
+  color: #000000;
+  margin-top: -5px;
+  margin-bottom: 32px;
 }
 
-.gb-textarea{ min-height:110px; resize:none; }
-
-.gb-submit{
-  border:none;
-  border-radius:0px;
-  padding:12px 14px;
-  font-family:"Gowun Dodum";
-  font-size:1rem;
-  cursor:pointer;
-  background:#111;
-  color:#fff;
+.gb-modal__card{
+  position: relative; /* ⬅ 기준점 */
 }
 
-.gb-hint{
-  font-size:0.78rem;
+.gb-modal__close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: #111;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gb-modal__close:active{
+  transform: scale(0.95);
+}
+
+.gb-list { 
+  display:flex; 
+  flex-direction:column; 
+  gap:14px; 
+  padding: 0 18px 80px; 
+}
+
+.gb-item {
+  background:#fff; 
+  border-radius:5px; 
+  padding:18px 18px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  position:relative;
+  font-family: "Gowun Dodum";
+}
+
+.gb-x {
+  position:absolute; 
+  right:14px; 
+  top:12px;
+  border:none; 
+  background:transparent; 
+  font-size:18px; 
+  cursor:pointer; 
   color:#777;
-  margin-top:2px;
 }
 
-.guestbook-list{
-  margin-top:16px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+.gb-name { 
+  font-weight:700; 
+  font-size:18px; 
+  margin-bottom:10px;
+ }
+
+.gb-message { 
+  line-height:1.6; 
+  color:#333; 
+  white-space:pre-wrap; 
 }
 
-.gb-item{
-  background:#fff;
-  border-radius:16px;
-  padding:14px 14px 12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.06);
-  text-align:left;
+.gb-fab{
+  position: static;              /* ✅ fixed 제거 */
+  display:block;
+  width: fit-content;
+  margin: 0px 18px 0 auto;           /* 가운데 정렬 */
+  padding: 10px 22px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  cursor: pointer;
 }
 
-.gb-meta{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  gap:10px;
-  margin-bottom:8px;
+.gb-modal{ 
+  position:fixed; 
+  inset:0; 
+  display:none; 
+  place-items:center; 
+  background:rgba(0,0,0,.35); 
+  padding:18px; 
+  z-index:999; 
 }
 
-.gb-name{
-  font-weight:700;
-  color:#222;
-  font-family:"Gowun Dodum";
+.gb-modal.open{ 
+  display:grid; 
 }
 
-.gb-date{
-  font-size:0.78rem;
-  color:#888;
-  font-family:"Lora";
-  letter-spacing:0.03em;
+.gb-modal__card{ 
+  width:min(420px, 100%); 
+  background:#fff; 
+  border-radius:5px; 
+  padding:18px; 
 }
 
-.gb-msg{
-  white-space:pre-wrap;
-  color:#444;
-  font-family:"Gowun Dodum";
-  line-height:1.6;
+.gb-modal__title{ 
+  font-weight:700; 
+  font-size:18px; 
+  text-align: center;
+
 }
 
-.gb-actions{
-  margin-top:10px;
-  display:flex;
-  gap:8px;
-  justify-content:flex-end;
+.gb-form input, 
+.gb-form textarea{
+  width: 100%;
+  border: none;                 /* ⬅ 박스 제거 */
+  border-bottom: 1px solid #e5e5e5; /* ⬅ 하단 라인 */
+  border-radius: 0;             /* ⬅ 둥근 모서리 제거 */
+  background: transparent;      /* ⬅ 박스 배경 제거 */
+  padding: 14px 4px;
+  font-size: 15px;
+  outline: none;
+  font-family: "Gowun Dodum";
+  font-weight: 500;
 }
 
-.gb-delete{
-  border:1px solid rgba(0,0,0,0.08);
-  background:#fff;
-  border-radius:999px;
-  padding:7px 12px;
-  font-size:0.85rem;
-  cursor:pointer;
+.gb-form textarea{
+  min-height: 120px;
+  resize: none;
 }
 
-.gb-more{
-  margin-top:12px;
-  width:100%;
-  max-width:480px;
-  border:none;
-  border-radius:12px;
-  padding:12px 14px;
-  background: rgba(255,255,255,0.65);
-  box-shadow:0 8px 20px rgba(0,0,0,0.06);
-  cursor:pointer;
+.gb-form label{
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  margin-top: 18px;
+}
+
+.gb-form label span{
+  color: #e33;
+  margin-left: 2px;
+}
+
+
+.gb-actions{ 
+  display:flex; 
+  gap:10px; 
+  justify-content:flex-end; 
+  margin-top:12px; 
+}
+
+.gb-btn{ 
+  padding:10px 14px; 
+  border-radius:5px; 
+  border:none; 
+  background:#111; 
+  color:#fff; 
+  cursor:pointer; 
+}
+
+.gb-btn.ghost{ 
+  background:#f2f2f2; 
+  color:#111; 
 }
