@@ -100,6 +100,12 @@ body {
   width: 100%; 
   max-width: 480px; /* 너가 모바일 카드 느낌 유지하고 싶으면 */ }
 
+.hero-media-big { 
+  position: relative; /* ✅ overlay 기준점 */ 
+  width: 100%; 
+  max-width: 560px; /* 너가 모바일 카드 느낌 유지하고 싶으면 */ }
+
+
 .hero-photo {
   width: 100%;
   height: auto;
@@ -113,10 +119,6 @@ body {
   pointer-events: none;
 } 
 
-.hero-slide.slide-from-left  .hero-media,
-.hero-slide.slide-from-right .hero-media{
-  max-width: 560px;
-}
 
 /* ✅ 1) first: 오른쪽 상단 */
 .hero-caption__first{
@@ -175,15 +177,6 @@ body {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
-.hero-text-overlay {
-  position: absolute;
-  inset: 0; /* ✅ 사진 영역 딱 맞게 */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 18px;
-}
-
 .hero-top-row {
   width: 100%;
   display: flex;
@@ -206,7 +199,7 @@ body {
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 2rem;
-  transform: translateY(-20px);
+  transform: translateY(-10%);
 }
 
 .hero-date-stack {
