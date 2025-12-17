@@ -233,10 +233,11 @@ body {
 
 /* 시간 */
 .hero-date-stack .hero-time {
+  align-self: flex-end;
   font-size: 1.3rem;
   margin-top: -0.43rem;
   letter-spacing: 0.15em;
-  transform: translateX(14vw);
+  transform: translateX(4vw);
 }
 
 .hero-date-stack .hero-time .ampm {
@@ -1204,4 +1205,81 @@ body {
 .gb-btn.ghost{ 
   background:#f2f2f2; 
   color:#111; 
+}
+
+
+/* ✅ 마지막 감사 섹션 */
+.thanks{
+  max-width: 560px;
+  margin: 120px auto 80px;
+  padding: 0 16px;
+}
+
+.thanks-media{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 사진 */
+.thanks-media img{
+  width: 100%;
+  height: min(100vh, 800px);
+  object-fit: cover;           /* 좌우만 잘림 */
+  object-position: center top;
+  display: block;
+  size: 2.5rem;
+  transform: scale(1.5);
+}
+
+/* ⬆️ 위 페이드 */
+.thanks-media::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6%;
+  z-index: 2;
+
+  background: linear-gradient(
+    to bottom,
+    #f9f9f9 0%,
+    rgba(249,249,249,0.8) 35%,
+    rgba(249,249,249,0) 100%
+  );
+}
+
+/* ⬇️ 아래 페이드 */
+.thanks-media::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12%;
+  z-index: 2;
+
+  background: linear-gradient(
+    to top,
+    #f9f9f9 0%,
+    rgba(249,249,249,0.8) 35%,
+    rgba(249,249,249,0) 100%
+  );
+}
+
+/* 텍스트 */
+.thanks-text{
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+
+  font-family: "Gowun Dodum", serif;
+  font-size: clamp(1rem, 6vw, 2rem);
+  letter-spacing: 0.14em;
+  color: #fff;
+
+  transform: translateY(-40%);
 }
