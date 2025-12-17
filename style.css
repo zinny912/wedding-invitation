@@ -79,11 +79,11 @@ body {
   opacity: 0;
   pointer-events: none;
   justify-content: center;
-  align-items: cen;
+  align-items: center;
 
   transition:
-    opacity 650ms ease,
-    transform 950ms cubic-bezier(.22,.61,.36,1);
+    opacity 900ms ease,
+    transform 1200ms cubic-bezier(.22,.61,.36,1);
 
   /* 기본(혹시 다른 CSS가 transform을 덮으면 안 보이니 여기서 초기화) */
   transform: translateX(0) scale(1);
@@ -95,20 +95,24 @@ body {
   pointer-events: auto;
 }
 
-.hero-media { 
-  position: relative; /* ✅ overlay 기준점 */ 
-  width: 100%; 
-  max-width: 480px; /* 너가 모바일 카드 느낌 유지하고 싶으면 */ }
+.hero-media-big{
+  position: relative;
+  width: min(560px, 100vw);
+  height: 100vh;                 /* ✅ 기준 높이를 고정 */
+  overflow: hidden;
+}
 
-.hero-media-big { 
-  position: relative; /* ✅ overlay 기준점 */ 
-  width: 100%; 
-  max-width: 560px; /* 너가 모바일 카드 느낌 유지하고 싶으면 */ }
+.hero-media{
+  position: relative;
+  width: min(480px, 100vw);
+  height: 100vh;                 /* ✅ 기준 높이를 고정 */
+  overflow: hidden;
+}
 
-
-.hero-photo {
+.hero-photo{
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;             /* ✅ 제일 중요 */
   display: block;
 }
 
@@ -168,7 +172,6 @@ body {
 .hero-text-overlay {
   position: absolute;
   inset: 0;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -177,8 +180,12 @@ body {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
-.hero-top-row {
-  width: 100%;
+.hero-top-row{
+  position: absolute;
+  top: 6%;
+  left: 18px;
+  right: 18px;
+
   display: flex;
   justify-content: space-between;
 
@@ -186,40 +193,44 @@ body {
   letter-spacing: 0.08em;
   font-weight: 400;
   font-size: 1rem;
-
-  transform: translateY(-2vh); /* ✅ 이제 translate 필요 없음 */
 }
 
-.hero-bottom-row {
-  width: 100%;
+/* ✅ 하단 문구: “아래에서 몇 %”로 고정 */
+.hero-bottom-row{
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
-  justify-content: center;   /* ← 가운데 정렬 */
-  align-items: center;       /* ← 세로 정렬 */
-  font-family: "DM serif Display", serif;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "DM Serif Display", serif;
   letter-spacing: 0.08em;
   font-weight: 400;
-  font-size: 2rem;
-  transform: translateY(-10%);
+  font-size: clamp(1.4rem, 4vw, 2rem);  /* 모바일 잘림 방지 */
+  white-space: nowrap;
 }
 
-.hero-date-stack {
-  position: absolute;        /* hero 안에서 절대 위치 */
+/* ✅ 중앙 날짜: “위에서 몇 %”로 고정 */
+.hero-date-stack{
+  position: absolute;
+  top: 17%;
   left: 50%;
-  top: 25%;                  /* 숫자가 놓일 세로 위치 (대략 가운데 아래쪽) */
-  transform: translate(-50%, -50%);  /* 가운데 기준 정렬 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
 }
 
-.hero-date-stack span {
+.hero-date-stack span{
   font-family: "Berkshire Swash", serif;
   font-weight: 500;
   font-style: italic;
-  font-size: clamp(7rem, 10vw, 8rem);
-  line-height: 0.7;
-  text-shadow: 0 2px 4px rgba(255, 255, 0, 0.7);
-  color: #ffffff;
+  font-size: clamp(5rem, 10vw, 8rem);   /* 모바일 잘림 방지 */
+  line-height: 0.78;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(255,255,0,.7);
 }
 
 /* 날짜 두 줄 약간씩만 좌우로 벌리기 */
@@ -231,16 +242,16 @@ body {
 }
 
 /* 시간 */
-.hero-date-stack .hero-time {
+.hero-date-stack .hero-time{
+  font-family: "Berkshire Swash", serif;
   font-size: 1.3rem;
-  margin-top: -0.43rem;
   letter-spacing: 0.15em;
-  transform: translateX(14vw);
+  margin-top: 6px;
 }
 
-.hero-date-stack .hero-time .ampm {
+.hero-date-stack .hero-time .ampm{
   font-family: "DM Serif Display", serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 /* 텍스트 영역 */
