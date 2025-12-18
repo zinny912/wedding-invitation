@@ -65,7 +65,7 @@ let currentPage = 1;
 let currentImageIndex = null; // ✅ 현재 모달에서 보고 있는 사진 번호
 
 function getImagePath(index) {
-  // index: 1 ~ 90, 파일명: img01.jpg ~ img90.jpg 기준
+  // index: 1 ~ 90
   const num = String(index).padStart(2, "0"); // 1 -> "01"
   return `images/gallery/img${num}.webp`;
 }
