@@ -27,8 +27,8 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=DM+Serif+Display:ital@0;1&family=Gowun+Dodum&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=DM+Serif+Display:ital@0;1&family=Gowun+Dodum&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sirivennela&display=swap" rel="stylesheet">
+
   <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
@@ -80,21 +80,22 @@
 
         <div class="hero-text-overlay">
           <div class="hero-top-row">
-            <span>Choi Seung Ho</span>
-            <span>Lee Jin Hee</span>
-          </div>
-
-          <div class="hero-date-stack">
-            <span>2026</span>
-            <span>0328</span>
-            <span class="hero-time"><span class="ampm">pm </span>02:30</span>
+            <span>Seungho</span>
+            <span>&</span>
+            <span>Jinhee</span>
           </div>
 
           <div class="hero-bottom-row">
             <span>TO BE TOGETHER</span>
           </div>
-        </div>
 
+
+          <div class="hero-date-stack">
+            <span>2026</span>
+            <span>0328</span>
+            <span class="hero-time"><span class="ampm">pm </span>02:30</span>
+        </div>
+      </div>  
       </div>
     </div>
 
@@ -375,6 +376,7 @@
   </div>
 
   <div id="guestbookList" class="gb-list"></div>
+  <button id="gbMore" class="gb-more" type="button" hidden>∨ 더보기</button>
 
   <button id="gbOpen" class="gb-fab">작성하기</button>
 
