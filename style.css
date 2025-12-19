@@ -61,56 +61,64 @@ body {
   background: #f9f9f9;   /* ✅ 양옆 여백 색도 여기서 맞춤 */
 }
 
+/* ✅ 1. 첫 화면 (Hero) 수정 */
 .hero-slider { 
   position: relative; 
+  width: 100%;
   height: 100vh; 
   overflow: hidden; 
+  background: #f9f9f9;
+  /* opacity: 0 제거 (보여야 함) */
+  opacity: 1; 
+  display: block; /* flex 제거 */
 }
 
-.hero-track  { 
+.hero-track { 
   position: relative; 
+  width: 100%;
   height: 100%; 
 }
 
-.hero-slide{
-  position: absolute;
-  display: flex;
+.hero-slide {
+  position: absolute; /* 슬라이드들을 겹치게 설정 */
   inset: 0;
-  opacity: 0;
+  opacity: 0; /* 평소엔 숨김 */
   pointer-events: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-
-  transition:
-    opacity 900ms ease,
-    transform 1200ms cubic-bezier(.22,.61,.36,1);
-
-  /* 기본(혹시 다른 CSS가 transform을 덮으면 안 보이니 여기서 초기화) */
-  transform: translateX(0) scale(1);
+  transition: opacity 900ms ease;
+  z-index: 1;
 }
 
-.hero-slide.is-active{
-  opacity: 1;
-  transform: translateX(0) scale(1);
+
+.hero-slide.is-active {
+  opacity: 1; /* 활성화된 슬라이드만 보임 */
   pointer-events: auto;
+  z-index: 2;
 }
 
 .hero-media-big { 
   position: relative; /* ✅ overlay 기준점 */ 
   width: min(560px, 100vw); /* 너가 모바일 카드 느낌 유지하고 싶으면 */ 
+  height: 100vh;
+  overflow: hidden;
 }
 
 .hero-media { 
   position: relative; /* ✅ overlay 기준점 */ 
   width: min(480px, 100vw); /* 너가 모바일 카드 느낌 유지하고 싶으면 */ 
+  height: 100vh;
+  overflow: hidden;
 }
 
-
+/* ✅ 2. 이미지 꽉 차게 설정 */
 .hero-photo {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: cover; /* 비율 유지하며 꽉 채움 */
+  object-position: center;
 }
 
 .hero-caption{ 
@@ -124,21 +132,21 @@ body {
 /* ✅ 1) first: 오른쪽 상단 */
 .hero-caption__first{
   position: absolute;
-  top: 18px;
+  top: calc(18px + env(safe-area-inset-top, 0px));
   right: 18px;
   font-family: "DM Serif Display", serif;
   opacity: 0;
   transform: translateX(120%); /* 오른쪽 바깥에서 대기 */
   will-change: transform, opacity;
   color: #fff;
-  font-size: 5rem;
+  font-size: clamp(3rem, 10vw, 5rem);
   max-width: 560px;
 }
 
 .hero-caption__sub{
   position: absolute;
   left: 50%;
-  bottom: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
   font-family: "DM Serif Display", serif;
   opacity: 0;
   font-size: 5rem;
@@ -174,24 +182,26 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px 18px;
-  color: #d6e111;
+  color: #F3E19A;
+  z-index: 5;
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
 .hero-top-row {
   position: absolute;
-  top: 16%;                 /* 상단에서 살짝 내려온 위치 */
+  top: 80px;                 /* 상단에서 살짝 내려온 위치 */
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;     /* ← 중앙 정렬 */
 
   font-family: "Sirivennela", serif;
-  letter-spacing: 0.08em;
+  /* letter-spacing: 0.08em; */
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 0.85;
 
   white-space: nowrap;
@@ -201,8 +211,8 @@ body {
 .hero-bottom-row{
   position: absolute;
   left: 50%;
-  top: 35%;                         /* ✅ 세로 중앙 */
-  transform: translate(-50%, -50%); /* ✅ 정확한 중앙 정렬 */
+  top: 200px;                         /* ✅ 세로 중앙 */
+  transform: translateX(-50%); /* ✅ 정확한 중앙 정렬 */
   
   display: flex;
   justify-content: center;
@@ -215,15 +225,26 @@ body {
   white-space: nowrap;
 }
 
-.hero-date-stack{
+.hero-date-stack {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: -30px; /* ✅ gap을 마이너스 값으로 주면 더 붙습니다 (취향에 따라 0 ~ -20px 조절) */
   position: absolute;
   left: 50%;
-  bottom: 5%;                 /* ✅ 사진 아래에서 10% 위 */
-  transform: translateX(-50%); /* ✅ 가로만 가운데 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  bottom: 40px;
+  transform: translateX(-50%);
 }
+
+/* 각 숫자 줄: 가로 정렬 */
+.date-row {
+  display: flex;
+  justify-content: center;
+  line-height: 0.2; /* 숫자가 위아래로 너무 벌어지지 않게 조정 */
+}
+
+.year-row { transform: translateX(-10px); }
+.day-row { transform: translateX(10px); }
 
 .hero-date-stack span {
   font-family: "Sirivennela", serif;
@@ -232,7 +253,7 @@ body {
   font-style: italic;
   font-size: 5.5rem;
   text-shadow: 0 2px 4px rgba(243, 225, 154, 0.7);
-  color: #f9ddad;
+  color: #E5D3C5;
 }
 
 /* 날짜 두 줄 약간씩만 좌우로 벌리기 */
@@ -250,13 +271,13 @@ body {
   margin-top: -0.43rem;
   letter-spacing: 0.15em;
   transform: translateX(5vw);
-  color: #f9ddad;
+  color: #E5D3C5;
 }
 
 .hero-date-stack .hero-time .ampm {
   font-family: "Sirivennela", serif;
   font-size: 1.5rem;
-  color: #f9ddad;
+  color: #E5D3C5;
 }
 
 /* 텍스트 영역 */
@@ -350,9 +371,10 @@ body {
   }
 }
 
-@keyframes zoomInCenter {
+/* ✅ 3. 애니메이션 정의 누락 수정 */
+@keyframes zoomFadeInCenter {
   from {
-    transform: scale(1.25);
+    transform: scale(1.2);
     opacity: 0;
   }
   to {
@@ -443,14 +465,13 @@ body {
   gap: 10px;
 }
 
+/* ✅ 4. 갤러리 이미지 표시 (작은 이미지들이 안 보일 때) */
 .gallery-item {
   width: 100%;
-  height: 160px;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: top center;
-  border-radius: 0px;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background-color: #eee; /* 이미지 로딩 전 회색 배경 표시 */
+  display: block;
 }
 
 .gallery-item:active {
@@ -1166,13 +1187,13 @@ body {
   display:grid; 
 }
 
-.gb-modal__card{ 
+/* .gb-modal__card{ 
   width:min(450px, 100%); 
   height:min(400px, 100%);
   background:#fff; 
   border-radius:5px; 
   padding:18px; 
-}
+} */
 
 .gb-modal__title{ 
   font-weight:700; 
@@ -1366,4 +1387,99 @@ body {
   letter-spacing: 0.1em;
   color: #000;
   
+}
+/* 이름 */
+.name-left{
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.name-center{
+  opacity: 0;
+  transform: scale(.6);
+}
+.name-right{
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+/* 문구 */
+.together{
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* 날짜 숫자 */
+.hero-date-stack .d{
+  opacity: 0;
+  display: inline-block; /* 애니메이션 적용을 위해 필요 */
+  font-family: "Sirivennela", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 5rem; /* 크기는 취향껏 조절 */
+  line-height: 0.8; /* 줄 간격 좁게 */
+  color: #f9ddad;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* 연도와 월일 각각의 행 */
+.date-year, .date-day {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  flex-direction: row;
+  
+}
+/* 시간 */
+.hero-time{
+  opacity: 0;
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+@keyframes fromLeft {
+  to { opacity:1; transform: translateX(0); }
+}
+@keyframes fromRight {
+  to { opacity:1; transform: translateX(0); }
+}
+@keyframes popCenter {
+  to { opacity:1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ① 이름 */
+.hero-slide.is-active .name-left{
+  animation: fromLeft 800ms cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay: 1200ms;
+}
+.hero-slide.is-active .name-center{
+  animation: popCenter 600ms ease forwards;
+  animation-delay: 1400ms;
+}
+.hero-slide.is-active .name-right{
+  animation: fromRight 800ms cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay: 1600ms;
+}
+
+/* ② TO BE TOGETHER */
+.hero-slide.is-active .together{
+  animation: fadeUp 700ms ease forwards;
+  animation-delay: 1200ms;
+}
+
+/* ③ 날짜 숫자 하나씩 */
+.hero-slide.is-active .d1{ animation: fadeUp .4s ease forwards; animation-delay: 1800ms;}
+.hero-slide.is-active .d2{ animation: fadeUp .4s ease forwards; animation-delay: 1900ms;}
+.hero-slide.is-active .d3{ animation: fadeUp .4s ease forwards; animation-delay: 2000ms;}
+.hero-slide.is-active .d4{ animation: fadeUp .4s ease forwards; animation-delay: 2100ms;}
+.hero-slide.is-active .d5{ animation: fadeUp .4s ease forwards; animation-delay: 2200ms;}
+.hero-slide.is-active .d6{ animation: fadeUp .4s ease forwards; animation-delay: 2300ms;}
+.hero-slide.is-active .d7{ animation: fadeUp .4s ease forwards; animation-delay: 2400ms;}
+.hero-slide.is-active .d8{ animation: fadeUp .4s ease forwards; animation-delay: 2500ms;}
+
+/* 시간 */
+.hero-slide.is-active .hero-time{
+  animation: fadeUp .6s ease forwards;
+  animation-delay: 2700ms;
 }

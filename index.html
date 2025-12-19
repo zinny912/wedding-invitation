@@ -20,38 +20,37 @@
     <meta name="twitter:image" content="https://zinny912.github.io/wedding-invitation/images/main_01.webp">
 
     <link rel="stylesheet" href="style.css?v=2" />
-    <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=DM+Serif+Display:ital@0;1&family=Gowun+Dodum&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sirivennela&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=DM+Serif+Display:ital@0;1&family=Gowun+Dodum&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sirivennela&display=swap" rel="stylesheet">
 
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDAtRxJhKtysr03Ofhsve2UUax0F8OMA6o",
-    authDomain: "mobile-wedding-card-c9412.firebaseapp.com",
-    projectId: "mobile-wedding-card-c9412",
-    storageBucket: "mobile-wedding-card-c9412.firebasestorage.app",
-    messagingSenderId: "480729498294",
-    appId: "1:480729498294:web:3c0ca297773c5bf7825c17",
-    measurementId: "G-QWF0GK1X02"
-  };
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDAtRxJhKtysr03Ofhsve2UUax0F8OMA6o",
+      authDomain: "mobile-wedding-card-c9412.firebaseapp.com",
+      projectId: "mobile-wedding-card-c9412",
+      storageBucket: "mobile-wedding-card-c9412.firebasestorage.app",
+      messagingSenderId: "480729498294",
+      appId: "1:480729498294:web:3c0ca297773c5bf7825c17",
+      measurementId: "G-QWF0GK1X02"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</head>
+<body>
 
 <section class="hero-slider" id="heroSlider">
   <div class="hero-track">
@@ -79,21 +78,34 @@
         <img src="./images/gallery/img05.webp" class="hero-photo" />
 
         <div class="hero-text-overlay">
-          <div class="hero-top-row">
-            <span>Seungho</span>
-            <span>&</span>
-            <span>Jinhee</span>
-          </div>
+           <div class="hero-top-row">
+              <span class="name-left">Seungho</span>
+              <span class="name-center">&</span>
+              <span class="name-right">Jinhee</span>
+            </div>
 
           <div class="hero-bottom-row">
-            <span>TO BE TOGETHER</span>
+            <span class="together">TO BE TOGETHER</span>
           </div>
 
 
           <div class="hero-date-stack">
-            <span>2026</span>
-            <span>0328</span>
-            <span class="hero-time"><span class="ampm">pm </span>02:30</span>
+            <div class="date-row year-row">
+              <span class="d d1">2</span>
+              <span class="d d2">0</span>
+              <span class="d d3">2</span>
+              <span class="d d4">6</span>
+            </div>
+            <div class="date-row day-row">
+              <span class="d d5">0</span>
+              <span class="d d6">3</span>
+              <span class="d d7">2</span>
+              <span class="d d8">8</span>
+            </div>
+         
+            <span class="hero-time">
+              <span class="ampm">pm </span>02:30
+            </span>
         </div>
       </div>  
       </div>
