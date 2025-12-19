@@ -203,7 +203,7 @@ body {
   left: 50%;
   top: 35%;                         /* ✅ 세로 중앙 */
   transform: translate(-50%, -50%); /* ✅ 정확한 중앙 정렬 */
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -231,14 +231,13 @@ body {
   font-weight: 500;
   font-style: italic;
   font-size: 5.5rem;
-  line-height: 0.7;
-  text-shadow: 0 2px 4px rgba(255, 255, 0, 0.7);
-  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(243, 225, 154, 0.7);
+  color: #f9ddad;
 }
 
 /* 날짜 두 줄 약간씩만 좌우로 벌리기 */
 .hero-date-stack span:nth-child(1) {
-  transform: translateX(-3vw) translateY(-5vh);
+  transform: translateX(-3vw) translateY(-3.5vh);
 }
 .hero-date-stack span:nth-child(2) {
   transform: translateX(3vw) translateY(-3vh);
@@ -250,12 +249,14 @@ body {
   font-size: 1.5rem;
   margin-top: -0.43rem;
   letter-spacing: 0.15em;
-  transform: translateX(15vw);
+  transform: translateX(5vw);
+  color: #f9ddad;
 }
 
 .hero-date-stack .hero-time .ampm {
   font-family: "Sirivennela", serif;
   font-size: 1.5rem;
+  color: #f9ddad;
 }
 
 /* 텍스트 영역 */
@@ -1354,7 +1355,7 @@ body {
   left: 50%;
   z-index: 3;
 
-  transform: translate(-50%, 120%); /* 위로 살짝 올림 */
+  transform: translate(-50%, 50%); /* 위로 살짝 올림 */
 
   text-align: center;
   white-space: nowrap;
