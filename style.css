@@ -1483,3 +1483,26 @@ body {
   animation: fadeUp .6s ease forwards;
   animation-delay: 2700ms;
 }
+.coding-signature {
+  text-align: center;
+  margin-top: 180px;   /* 사진과의 간격 */
+  margin-bottom: 180px; /* 인비테이션 타이틀과의 간격 조정 */
+  font-family: 'Sirivennela', serif; /* 혹은 개발자 느낌의 고딕체 */
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: #7d7d7d;     /* 부드러운 회색 */
+  opacity: 1;
+}
+
+.code-bracket {
+  color: #7e7b75;     /* 브라켓은 조금 더 연한 색으로 */
+  font-weight: 400;
+}
+
+
+.code-text {
+  font-weight: 800;
+  padding: 0 5px;
+  /* 샴페인 골드 색상을 살짝 섞고 싶다면 아래 주석 해제 */
+  color: #61615f;
+}
