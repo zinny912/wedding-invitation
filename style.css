@@ -1375,8 +1375,10 @@ body {
   position: absolute;
   left: 50%;
   z-index: 3;
+  top: 18%; 
+  left: 55%;
 
-  transform: translate(-50%, 50%); /* 위로 살짝 올림 */
+  transform: translate(-50%, 0%); /* 위로 살짝 올림 */
 
   text-align: center;
   white-space: nowrap;
