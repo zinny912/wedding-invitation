@@ -112,13 +112,26 @@ const modalImg = document.getElementById("modal-image");
 
 function openModalWithIndex(index) {
   if (index < 1 || index > TOTAL_IMAGES) return;
+  
+  const wasClosed = modal.style.display !== "flex";
   currentImageIndex = index;
+
   modalImg.src = getImagePath(currentImageIndex);
   modalImg.alt = `우리 사진 ${currentImageIndex}`;
   modal.style.display = "flex";
+
+  history.pushState({ modal: "gallery" }, "");
 }
 
 function closeModal() {
+  if (modal.style.display !== "flex") return;
+  closeModalUI();
+  if (history.state && history.state.modal === "gallery") {
+    history.back();
+  }
+}
+
+function closeModalUI() {
   modal.style.display = "none";
   currentImageIndex = null;
 }
@@ -217,6 +230,12 @@ modal.addEventListener("touchend", (e) => {
   // 왼쪽 → 오른쪽 스와이프(이전 사진)
   if (diff > 50) {
     modalPrev();
+  }
+});
+
+window.addEventListener("popstate", (e) => {
+  if (modal && modal.style.display === "flex") {
+    closeModalUI();
   }
 });
 

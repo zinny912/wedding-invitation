@@ -3,7 +3,7 @@ import { initializeAppCheck, ReCaptchaV3Provider }
   from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app-check.js";
 
 import {
-  getFirestore, collection, addDoc, serverTimestamp,
+  getFirestore, collection, addDoc, Timestamp,
   query, orderBy, limit, onSnapshot,
   deleteDoc, doc
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
@@ -166,9 +166,40 @@ onAuthStateChanged(auth, (user) => {
 });
 
 /** ✅ 모달 */
-openBtn?.addEventListener("click", () => modal.classList.add("open"));
-closeBtn?.addEventListener("click", () => modal.classList.remove("open"));
-modal?.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("open"); });
+let savedScrollY = 0;
+openBtn?.addEventListener("click", () => {
+  savedScrollY = window.scrollY;
+
+  // ✅ 현재 화면 고정(팔로잉 느낌의 핵심)
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+
+  modal.classList.add("open");
+});
+
+function closeGuestbookModal() {
+  modal.classList.remove("open");
+
+  // ✅ 화면 고정 해제 + 원래 스크롤 위치 복구
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+
+  window.scrollTo(0, savedScrollY);
+}
+
+
+closeBtn?.addEventListener("click", closeGuestbookModal);
+modal?.addEventListener("click", (e) => {
+  if (e.target === modal) closeGuestbookModal();
+});
+
+modal?.addEventListener("click", (e) => { if (e.target === modal) closeGuestbookModal(); });
 
 /** ✅ 작성 */
 form?.addEventListener("submit", async (e) => {
@@ -178,6 +209,11 @@ form?.addEventListener("submit", async (e) => {
   const message = messageInput.value.trim();
   if (!name || !message) return;
 
+  if (!auth.currentUser) {
+    alert("인증 중입니다. 잠시 후 다시 시도해주세요.");
+    return;
+  }
+
   const submitBtn = form.querySelector('button[type="submit"]');
   if (submitBtn) submitBtn.disabled = true;
 
@@ -186,7 +222,7 @@ form?.addEventListener("submit", async (e) => {
       name,
       message,
       uid: auth.currentUser.uid,
-      createdAt: serverTimestamp(),
+      createdAt: Timestamp.now(),
     });
 
     messageInput.value = "";
