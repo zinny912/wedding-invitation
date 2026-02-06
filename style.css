@@ -1079,27 +1079,6 @@ body {
   margin-bottom: 32px;
 }
 
-.gb-modal__card{
-  position: relative;
-  width: 100%;
-  max-width: 420px;        /* 데스크탑 기준 */
-  max-height: calc(100vh - 32px);
-
-  overflow-y: auto;        /* ✅ 작아지면 스크롤 */
-  -webkit-overflow-scrolling: touch;
-
-  background: #fff;
-  border-radius: 12px;
-  padding: 18px;
-}
-
-
-@media (max-width: 360px){
-  .gb-modal__card{
-    padding: 14px;
-  }
-}
-
 .gb-modal__close{
   position: absolute;
   top: 14px;
@@ -1172,29 +1151,57 @@ body {
   cursor: pointer;
 }
 
-.gb-modal{
+.gb-modal {
+  display: none;
   position: fixed;
   inset: 0;
-  display: none;
-  place-items: center;
-
-  padding: 10px;           /* ✅ 모바일 안전 여백 */
+  z-index: 9999;
+  padding: 10px;
   background: rgba(182, 180, 180, 0.1);
-  z-index: 999;
+
+  /* grid 유지 */
+  place-items: center;
+}
+
+.gb-modal.open {
+  display: grid;
+}
+
+.gb-modal__card{
+  position: relative;
+  width: 100%;
+  max-width: 420px;        /* 데스크탑 기준 */
+  max-height: calc(100vh - 32px);
+
+  overflow-y: auto;        /* ✅ 작아지면 스크롤 */
+  -webkit-overflow-scrolling: touch;
+
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
 }
 
 
-.gb-modal.open{ 
-  display:grid; 
+@media (max-width: 768px) {
+  .gb-modal {
+    /* place-items는 center라서 안 내려옴 → 위쪽 정렬로 변경 */
+    place-items: start center;   /* (세로 start, 가로 center) */
+    padding-top: 14vh;           /* ✅ 여기 숫자가 "아래로 내려오는 정도" */
+    padding-bottom: 10px;
+  }
+
+  .gb-modal__card {
+    max-height: calc(100svh - 14vh - 20px); /* ✅ 모바일 vh 이슈 대응 */
+    overflow-y: auto;
+  }
 }
 
-/* .gb-modal__card{ 
-  width:min(450px, 100%); 
-  height:min(400px, 100%);
-  background:#fff; 
-  border-radius:5px; 
-  padding:18px; 
-} */
+@media (max-width: 360px){
+  .gb-modal__card{
+    padding: 14px;
+  }
+}
+
 
 .gb-modal__title{ 
   font-weight:700; 

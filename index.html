@@ -45,9 +45,8 @@
       measurementId: "G-QWF0GK1X02"
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    // const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
   </script>
 </head>
 <body>
@@ -120,7 +119,6 @@
   <span class="code-bracket">/&gt;</span>
 </div>
 
-  <!-- ✅ 2. 본식 정보 섹션 -->
   <section class="section" id="info">
     <h5 class="section-title reveal">INVITATION</h5>
     <h2 class="section-main-title reveal"> 소중한 분들을 초대합니다</h2>
@@ -162,13 +160,12 @@
       </div>
     </section>
 
- <!-- ✅ 3. 갤러리 섹션 -->
   <section class="section" id="gallery">
     <h5 class="section-title reveal">GALLERY</h5>
     <h2 class="section-main-title reveal"> 웨딩 갤러리</h2>
 
     <div class="gallery-wrapper reveal">
-      <!-- 9장만 고정 슬롯으로 두고 JS로 사진을 바꿔 끼웁니다 -->
+
       <img class="gallery-item" loading="lazy">
       <img class="gallery-item" loading="lazy">
 
@@ -181,7 +178,6 @@
       <img class="gallery-item" loading="lazy">
       <img class="gallery-item" loading="lazy">
       
-      <!-- 가운데 줄 양 옆에 들어갈 이동 버튼 -->
       <button class="gallery-nav prev" id="gallery-prev">‹</button>
       <button class="gallery-nav next" id="gallery-next">›</button>
     </div>
@@ -232,7 +228,6 @@
   </div>
 </section>
 
-<!-- ✅ 오시는 길 섹션 -->
 <section class="location-section">
   <p class="location-label reveal">LOCATION</p>
   <h2 class="location-title reveal">오시는 길</h2>
@@ -265,9 +260,6 @@
 </section>
 
  
-
-
-  <!-- ✅ 4. 혼주 계좌 섹션 -->
   <section class="section" id="accounts">
   <h5 class="section-title reveal">ACCOUNT</h5>
   <h2 class="section-main-title reveal">마음 전하실 곳</h2>
