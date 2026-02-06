@@ -57,7 +57,7 @@ function copyText(text) {
 // ======================
 // 갤러리 페이징
 // ======================
-const TOTAL_IMAGES = 68;   // 전체 사진 개수
+const TOTAL_IMAGES = 69;   // 전체 사진 개수
 const IMAGES_PER_PAGE = 8; // 한 페이지당 8장
 const TOTAL_PAGES = Math.ceil(TOTAL_IMAGES / IMAGES_PER_PAGE);
 
