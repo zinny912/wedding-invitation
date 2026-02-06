@@ -5,11 +5,12 @@ import { initializeAppCheck, ReCaptchaV3Provider }
 import {
   getFirestore, collection, addDoc, serverTimestamp,
   query, orderBy, limit, onSnapshot,
-  deleteDoc, doc, Timestamp
+  deleteDoc, doc
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 import { getAuth, signInAnonymously, onAuthStateChanged }
   from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
 
 /** ✅ Firebase config */
 const firebaseConfig = {
@@ -25,10 +26,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 /** ✅ App Check */
-initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider("6LemOi0sAAAAAPVZOM5t0O2XaRtxcGz7TkoO-g7v"),
-  isTokenAutoRefreshEnabled: true,
-});
+// initializeAppCheck(app, {
+//   provider: new ReCaptchaV3Provider("6LemOi0sAAAAAPVZOM5t0O2XaRtxcGz7TkoO-g7v"),
+//   isTokenAutoRefreshEnabled: true,
+// });
 
 /** ✅ Auth (익명 로그인) */
 const auth = getAuth(app);
@@ -185,7 +186,7 @@ form?.addEventListener("submit", async (e) => {
       name,
       message,
       uid: auth.currentUser.uid,
-      createdAt: Timestamp.now(),
+      createdAt: serverTimestamp(),
     });
 
     messageInput.value = "";
