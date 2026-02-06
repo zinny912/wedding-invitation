@@ -11,6 +11,8 @@ import {
 import { getAuth, signInAnonymously, onAuthStateChanged }
   from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
+import { Timestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
 /** ✅ Firebase config */
 const firebaseConfig = {
   apiKey: "AIzaSyDAtRxJhKtysr03Ofhsve2UUax0F8OMA6o",
@@ -92,7 +94,7 @@ function renderGuestbook(user) {
     const isMine = data.uid && user && data.uid === user.uid;
 
     // createdAt = serverTimestamp() 기반
-    const createdAt = data.createdAt || null;
+    const createdAt = data.serverCreatedAt || data.createdAt || null;
 
     const item = document.createElement("div");
     item.className = "gb-item";
@@ -136,7 +138,7 @@ moreBtn?.addEventListener("click", () => {
 });
 
 /** ✅ 목록 실시간 구독 (최신순) */
-const q = query(guestbookRef, orderBy("createdAt", "desc"), limit(50));
+const q = query(guestbookRef, orderBy("serverCreatedAt", "desc"), limit(50));
 let unsub = null;
 
 onAuthStateChanged(auth, (user) => {
@@ -184,8 +186,9 @@ form?.addEventListener("submit", async (e) => {
       name,
       message,
       uid: auth.currentUser.uid,
-      createdAt: serverTimestamp(), // ✅ 정렬/시간 통일
-    });
+      createdAt: Timestamp.now(),
+      serverCreatedAt: serverTimestamp(),
+});
 
     messageInput.value = "";
     modal.classList.remove("open");
