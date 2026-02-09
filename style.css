@@ -678,6 +678,7 @@ body {
   height: 34px;
   border-radius: 10px;
   color: #777;
+  flex-direction: column;
 }
 
 /* 가운데 텍스트 */
