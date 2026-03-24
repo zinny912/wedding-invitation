@@ -30,12 +30,14 @@ function toggleAccount(type) {
   }
 }
 
-// 텍스트 복사
-function copyText(text) {
+function copyText(bank, account, owner) {
+  const text = `${bank} ${account}`;
+  const message = `계좌번호가 복사되었습니다.\n\n${owner}\n${bank}\n${account}`;
+
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard
       .writeText(text)
-      .then(() => alert("계좌번호가 복사되었습니다."))
+      .then(() => alert(message))
       .catch(() => alert("복사 중 오류가 발생했습니다."));
   } else {
     const textarea = document.createElement("textarea");
@@ -44,12 +46,14 @@ function copyText(text) {
     textarea.style.left = "-9999px";
     document.body.appendChild(textarea);
     textarea.select();
+
     try {
       document.execCommand("copy");
-      alert("계좌번호가 복사되었습니다.");
+      alert(message);
     } catch (e) {
       alert("복사 중 오류가 발생했습니다.");
     }
+
     document.body.removeChild(textarea);
   }
 }
